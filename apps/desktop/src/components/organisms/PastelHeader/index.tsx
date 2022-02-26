@@ -1,19 +1,39 @@
 import * as Styled from './styled';
 
-import { BsChevronLeft } from 'react-icons/bs';
-import React from 'react';
+import { BsChevronLeft, BsPlus, BsSearch } from 'react-icons/bs';
+import React, { useCallback } from 'react';
+
 import { RootState } from '../../../reducers';
 import { useSelector } from 'react-redux';
 
 export default function PastelHeader() {
   const { headerTitle } = useSelector((state: RootState) => state.pastel);
 
+  const addPalette = useCallback(() => {
+    console.log('addPalette');
+  }, []);
+
   return (
-    <Styled.Container className='p-4 flex items-center'>
-      <div style={{ color: 'var(--color-pastel-text-secondary)' }} className='mr-2'>
-        <BsChevronLeft />
+    <Styled.Container className='p-4 flex items-center justify-between'>
+      <div className='flex items-center'>
+        <div style={{ color: 'var(--color-pastel-text-secondary)' }} className='mr-2'>
+          <BsChevronLeft />
+        </div>
+        <div style={{ color: 'var(--color-pastel-text)' }}>{headerTitle}</div>
       </div>
-      <div style={{ color: 'var(--color-pastel-text)' }}>{headerTitle}</div>
+      <div style={{ color: 'var(--color-pastel-text)' }} className='flex items-center'>
+        <div className='mr-2 cursor-pointer' onClick={addPalette}>
+          <BsPlus size={20} />
+        </div>
+        <div className='flex items-center p-1 w-48 border rounded-md'>
+          <div className='mr-1 ml-1'>
+            <BsSearch size={12} />
+          </div>
+          <div>
+            <input className='bg-transparent focus:outline-none w-full placeholder:text-sm' placeholder='Search' />
+          </div>
+        </div>
+      </div>
     </Styled.Container>
   );
 }
