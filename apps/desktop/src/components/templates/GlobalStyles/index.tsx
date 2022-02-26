@@ -1,4 +1,4 @@
-import { COLORS, SIZES } from '../../constants';
+import { COLORS, SIZES } from '../../../constants';
 
 import { createGlobalStyle } from 'styled-components';
 
