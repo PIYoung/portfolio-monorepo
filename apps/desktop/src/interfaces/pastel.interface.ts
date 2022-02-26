@@ -5,4 +5,5 @@ export interface NavigationMenu {
   title: string;
   children?: NavigationMenu[];
   to?: string;
+  removable: boolean;
 }

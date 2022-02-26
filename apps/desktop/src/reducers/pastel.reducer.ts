@@ -20,37 +20,44 @@ const initialState: PastelState = {
     {
       iconKey: 0,
       title: 'Library',
+      removable: false,
       children: [
         {
           iconKey: 1,
           title: 'All Paletts',
           to: '/allPaletts',
+          removable: false,
         },
         {
           iconKey: 2,
           title: 'Recents',
           to: '/Recents',
+          removable: false,
         },
         {
           iconKey: 3,
           title: 'Colors',
           to: '/Colors',
+          removable: false,
         },
       ],
     },
     {
       iconKey: 0,
       title: 'Collections',
+      removable: false,
       children: [
         {
           iconKey: 4,
           title: 'Themes',
           to: '/Themes',
+          removable: true,
         },
         {
           iconKey: 4,
           title: 'Reference',
           to: '/Reference',
+          removable: true,
         },
       ],
     },
