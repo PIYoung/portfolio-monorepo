@@ -5,10 +5,13 @@ import update from 'immutability-helper';
 
 const ACTIONS = <const>{
   SET_PASTEL_HEADER_TITLE: 'Pastel/SET_PASTEL_HEADER_TITLE',
+  SET_SELECTED_PALETTE: 'Pastel/SET_SELECTED_PALETTE',
   ADD_NEW_PASTEL_COLLECTION: 'Pastel/ADD_NEW_PASTEL_COLLECTION',
 };
 
 export const setPastelHeaderTitle = createAction(ACTIONS.SET_PASTEL_HEADER_TITLE, (payload: string) => ({ payload }));
+
+export const setSelectedPalette = createAction(ACTIONS.SET_SELECTED_PALETTE, (payload: string) => ({ payload }));
 
 export const addNewPastelCollection = createAction(ACTIONS.ADD_NEW_PASTEL_COLLECTION, (payload: NavigationMenu) => ({
   payload,
@@ -16,11 +19,13 @@ export const addNewPastelCollection = createAction(ACTIONS.ADD_NEW_PASTEL_COLLEC
 
 export interface PastelState {
   headerTitle: string;
+  selectedPalette: string;
   menus: NavigationMenu[];
 }
 
 const initialState: PastelState = {
   headerTitle: 'All Paletts',
+  selectedPalette: '#ffffff',
   menus: [
     {
       iconKey: 0,
@@ -76,6 +81,15 @@ const pastelReducer = createReducer<PastelState>(initialState, builder => {
 
       return update(currState, {
         headerTitle: {
+          $set: action.payload,
+        },
+      });
+    })
+    .addCase(setSelectedPalette, (state, action) => {
+      const currState = current(state);
+
+      return update(currState, {
+        selectedPalette: {
           $set: action.payload,
         },
       });
