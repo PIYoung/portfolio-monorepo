@@ -1,5 +1,14 @@
+import PastelHeader from '../../components/organisms/PastelHeader';
+import PastelMain from '../../components/organisms/PastelMain';
+import PastelNavigation from '../../components/organisms/PastelNavigation';
 import React from 'react';
 
 export default function Pastel() {
-  return <h1 className='text-3xl font-bold underline'>Hello world!</h1>;
+  return (
+    <div>
+      <PastelNavigation />
+      <PastelHeader />
+      <PastelMain />
+    </div>
+  );
 }
