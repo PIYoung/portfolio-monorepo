@@ -4,6 +4,7 @@ import { parse, stringify } from 'flatted';
 import { combineReducers } from 'redux';
 import { configureStore } from '@reduxjs/toolkit';
 import { createLogger } from 'redux-logger';
+import pastel from './pastel.reducer';
 import storage from 'redux-persist/lib/storage';
 import user from './user.reducer';
 
@@ -14,12 +15,13 @@ const transformCircular = createTransform(
 const logger = createLogger();
 const rootReducer = combineReducers({
   user,
+  pastel,
 });
 const persistedReducer = persistReducer(
   {
     key: 'root',
     storage,
-    whitelist: ['user'],
+    whitelist: ['user', 'pastel'],
     transforms: [transformCircular],
   },
   rootReducer,
