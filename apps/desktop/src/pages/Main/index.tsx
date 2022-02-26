@@ -35,7 +35,7 @@ const Main = () => {
       <Styled.CenterContainer>
         <ColorTheme />
         <Styled.Outline>
-          <Styled.Button onClick={moveTo.bind(null, PATHS.PASTEL)}>시작</Styled.Button>
+          <Styled.Button onClick={moveTo.bind(null, PATHS.PASTEL)}>둘러보기</Styled.Button>
           <Styled.Greeting>
             <p>만나서 반갑습니다.</p>
             <p>
