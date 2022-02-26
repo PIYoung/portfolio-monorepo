@@ -4,18 +4,23 @@ import { NavigationMenu } from './../interfaces/pastel.interface';
 import update from 'immutability-helper';
 
 const ACTIONS = <const>{
+  SET_PASTEL_HEADER_TITLE: 'Pastel/SET_PASTEL_HEADER_TITLE',
   ADD_NEW_PASTEL_COLLECTION: 'Pastel/ADD_NEW_PASTEL_COLLECTION',
 };
+
+export const setPastelHeaderTitle = createAction(ACTIONS.SET_PASTEL_HEADER_TITLE, (payload: string) => ({ payload }));
 
 export const addNewPastelCollection = createAction(ACTIONS.ADD_NEW_PASTEL_COLLECTION, (payload: NavigationMenu) => ({
   payload,
 }));
 
 export interface PastelState {
+  headerTitle: string;
   menus: NavigationMenu[];
 }
 
 const initialState: PastelState = {
+  headerTitle: 'All Paletts',
   menus: [
     {
       iconKey: 0,
@@ -65,20 +70,30 @@ const initialState: PastelState = {
 };
 
 const pastelReducer = createReducer<PastelState>(initialState, builder => {
-  builder.addCase(addNewPastelCollection, (state, action) => {
-    const currState = current(state);
-    const index = 1;
+  builder
+    .addCase(setPastelHeaderTitle, (state, action) => {
+      const currState = current(state);
 
-    return update(currState, {
-      menus: {
-        [index]: {
-          children: {
-            $push: [action.payload],
+      return update(currState, {
+        headerTitle: {
+          $set: action.payload,
+        },
+      });
+    })
+    .addCase(addNewPastelCollection, (state, action) => {
+      const currState = current(state);
+      const index = 1;
+
+      return update(currState, {
+        menus: {
+          [index]: {
+            children: {
+              $push: [action.payload],
+            },
           },
         },
-      },
+      });
     });
-  });
 });
 
 export default pastelReducer;

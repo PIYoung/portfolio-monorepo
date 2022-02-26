@@ -4,6 +4,7 @@ import { BsClock, BsFolder, BsGrid, BsViewStacked } from 'react-icons/bs';
 import React, { useCallback } from 'react';
 
 import { NavigationMenu } from '../../../interfaces/pastel.interface';
+import { setPastelHeaderTitle } from '../../../reducers/pastel.reducer';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
@@ -14,15 +15,17 @@ interface Props {
 
 export default function PastelNavigationMenu({ title, childrenMenu }: Props) {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const moveTo = useCallback(
-    (to: string, e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    (to: string, _title, e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
       e.preventDefault();
       e.stopPropagation();
 
+      dispatch(setPastelHeaderTitle(_title));
       return navigate(to);
     },
-    [navigate],
+    [navigate, dispatch],
   );
 
   const drawChildrenMenu = useCallback(
@@ -51,7 +54,10 @@ export default function PastelNavigationMenu({ title, childrenMenu }: Props) {
       }
 
       return (
-        <div key={index} className='ml-2 flex text-xs mb-2 cursor-pointer' onClick={moveTo.bind(null, menu.to)}>
+        <div
+          key={index}
+          className='ml-2 flex text-xs mb-2 cursor-pointer'
+          onClick={moveTo.bind(null, menu.to, menu.title)}>
           <div className='mr-2'>{Icon}</div>
           <div>{menu.title}</div>
         </div>
