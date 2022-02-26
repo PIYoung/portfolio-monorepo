@@ -12,12 +12,11 @@ export const addNewPastelCollection = createAction(ACTIONS.ADD_NEW_PASTEL_COLLEC
 }));
 
 export interface PastelState {
-  defaultMenus: NavigationMenu[];
-  myMenus: NavigationMenu[];
+  menus: NavigationMenu[];
 }
 
 const initialState: PastelState = {
-  defaultMenus: [
+  menus: [
     {
       iconKey: 0,
       title: 'Library',
@@ -25,35 +24,33 @@ const initialState: PastelState = {
         {
           iconKey: 1,
           title: 'All Paletts',
-          to: '/',
+          to: '/allPaletts',
         },
         {
           iconKey: 2,
           title: 'Recents',
-          to: '/',
+          to: '/Recents',
         },
         {
           iconKey: 3,
           title: 'Colors',
-          to: '/',
+          to: '/Colors',
         },
       ],
     },
-  ],
-  myMenus: [
     {
-      iconKey: 4,
+      iconKey: 0,
       title: 'Collections',
       children: [
         {
           iconKey: 4,
           title: 'Themes',
-          to: '/',
+          to: '/Themes',
         },
         {
           iconKey: 4,
           title: 'Reference',
-          to: '/',
+          to: '/Reference',
         },
       ],
     },
@@ -63,10 +60,10 @@ const initialState: PastelState = {
 const pastelReducer = createReducer<PastelState>(initialState, builder => {
   builder.addCase(addNewPastelCollection, (state, action) => {
     const currState = current(state);
-    const index = 0;
+    const index = 1;
 
     return update(currState, {
-      myMenus: {
+      menus: {
         [index]: {
           children: {
             $push: [action.payload],
