@@ -1,3 +1,5 @@
+import React from 'react';
+
 export default function Pastel() {
-  return <div>Pastel</div>;
+  return <h1 className='text-3xl font-bold underline'>Hello world!</h1>;
 }
