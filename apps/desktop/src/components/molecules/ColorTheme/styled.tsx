@@ -7,7 +7,12 @@ export const Container = styled.div`
   text-align: center;
   cursor: pointer;
 
+  & > * {
+    width: 100%;
+  }
+
   & > p {
     margin: 0;
+    margin-top: var(--size-small);
   }
 `;

@@ -7,26 +7,23 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../reducers';
 import { setUserConfigurations } from '../../../reducers/user.reducer';
 
-export default function ColorMode() {
+export default function ColorTheme() {
   const dispatch = useDispatch();
   const { configurations } = useSelector((state: RootState) => state.user);
 
-  const changeColorMode = useCallback(
+  const changeColorTheme = useCallback(
     (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
       e.preventDefault();
       e.stopPropagation();
 
-      dispatch(
-        setUserConfigurations({
-          theme: configurations.theme === 'light' ? 'dark' : 'light',
-        }),
-      );
+      const theme = configurations.theme === 'light' ? 'dark' : 'light';
+      dispatch(setUserConfigurations({ theme }));
     },
     [dispatch, configurations],
   );
 
   return (
-    <Styled.Container onClick={changeColorMode}>
+    <Styled.Container onClick={changeColorTheme}>
       {configurations.theme === 'light' ? (
         <React.Fragment>
           <BsFillLightbulbFill size={24} />

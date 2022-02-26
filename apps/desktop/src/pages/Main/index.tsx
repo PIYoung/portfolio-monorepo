@@ -2,7 +2,7 @@ import * as Styled from './styled';
 
 import React, { useCallback, useEffect } from 'react';
 
-import ColorMode from '../../components/molecules/ColorMode';
+import ColorTheme from '../../components/molecules/ColorTheme';
 import { PATHS } from '../../constants';
 import { useNavigate } from 'react-router-dom';
 
@@ -33,7 +33,7 @@ const Main = () => {
   return (
     <Styled.Wrapper>
       <Styled.CenterContainer>
-        <ColorMode />
+        <ColorTheme />
         <Styled.Outline>
           <Styled.Button onClick={moveTo.bind(null, PATHS.PASTEL)}>시작</Styled.Button>
           <Styled.Greeting>
