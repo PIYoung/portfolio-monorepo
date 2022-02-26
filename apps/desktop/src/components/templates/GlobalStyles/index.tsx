@@ -2,13 +2,13 @@ import { COLORS, SIZES } from '../../../constants';
 
 import { createGlobalStyle } from 'styled-components';
 
-export const GlobalStyles = createGlobalStyle<{ colorMode: 'light' | 'dark' }>`
+export const GlobalStyles = createGlobalStyle<{ colorTheme: 'light' | 'dark' }>`
   html {
-    --color-text: ${({ colorMode }) => COLORS[colorMode].text};
-    --color-background: ${({ colorMode }) => COLORS[colorMode].background};
-    --color-background-secondary: ${({ colorMode }) => COLORS[colorMode].backgroundSecondary};
-    --color-primary: ${({ colorMode }) => COLORS[colorMode].primary};
-    --color-secondary: ${({ colorMode }) => COLORS[colorMode].secondary};
+    --color-text: ${({ colorTheme }) => COLORS[colorTheme].text};
+    --color-background: ${({ colorTheme }) => COLORS[colorTheme].background};
+    --color-background-secondary: ${({ colorTheme }) => COLORS[colorTheme].backgroundSecondary};
+    --color-primary: ${({ colorTheme }) => COLORS[colorTheme].primary};
+    --color-secondary: ${({ colorTheme }) => COLORS[colorTheme].secondary};
     --size-extra-small: ${SIZES.extraSmall};
     --size-small: ${SIZES.small};
     --size-medium: ${SIZES.medium};
