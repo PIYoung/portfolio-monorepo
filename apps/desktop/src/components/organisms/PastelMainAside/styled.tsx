@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 200px;
+  width: 250px;
   background-color: var(--color-pastel-main-aside);
 `;

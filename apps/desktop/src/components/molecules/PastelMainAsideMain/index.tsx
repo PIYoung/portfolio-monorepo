@@ -1,3 +1,4 @@
+import { ColorResult, SketchPicker } from 'react-color';
 import React, { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -13,11 +14,28 @@ export default function PastelMainAsideMain() {
     dispatch(setSelectedPalette('#ffffff'));
   }, [dispatch]);
 
+  const handleChangeColor = useCallback(
+    (color: ColorResult) => {
+      dispatch(setSelectedPalette(color.hex));
+    },
+    [dispatch],
+  );
+
   return (
-    <div className='mt-3'>
-      <div className='ml-3 mr-3'>
-        <div></div>
-        <div></div>
+    <div>
+      <div className='m-4'>
+        <SketchPicker
+          onChange={handleChangeColor}
+          color={selectedPalette}
+          styles={{
+            default: {
+              picker: {
+                backgroundColor: 'var(--color-pastel-navigation)',
+              },
+            },
+          }}
+          disableAlpha={true}
+        />
       </div>
       <div
         style={{ borderColor: 'var(--color-pastel-text-secondary)', backgroundColor: 'var(--color-pastel-header)' }}
