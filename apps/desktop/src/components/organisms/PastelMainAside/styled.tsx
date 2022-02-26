@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  height: 60px;
-  background-color: var(--color-pastel-header);
+  width: 200px;
+  background-color: var(--color-pastel-main-aside);
 `;
