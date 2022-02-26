@@ -18,7 +18,7 @@ function App() {
 
   return (
     <React.Fragment>
-      <GlobalStyles colorMode={configurations.theme} />
+      <GlobalStyles colorTheme={configurations.theme} />
       <BrowserRouter>
         <Routes>
           <Route path={PATHS.MAIN} element={<Main />} />
