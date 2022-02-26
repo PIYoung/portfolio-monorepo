@@ -7,6 +7,9 @@
 ## Portfolio Desktop(ReactJS)
 
 ```bash
+  # Node Version 16.13.1
+  nvm use 16.13.1
+
   # Run React App
   yarn
   yarn desktop start
