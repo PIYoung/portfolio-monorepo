@@ -1,0 +1,19 @@
+{
+  "author": "PIYoung(https://github.com/PIYoung)",
+  "name": "portfolio",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "admin": "yarn workspace backend",
+    "desktop": "yarn workspace desktop",
+    "electron": "yarn workspace electron",
+    "native": "yarn workspace native",
+    "server": "yarn workspace server",
+    "shared": "yarn workspace shared"
+  }
+}

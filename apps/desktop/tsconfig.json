@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "allowSyntheticDefaultImports": true,
+    "noFallthroughCasesInSwitch": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "noImplicitAny": false,
+    "sourceMap": false,
+    "preserveConstEnums": true,
+    "moduleResolution": "node"
+  },
+  "baseUrl": "src",
+  "outDir": "./dist/out-tsc",
+  "paths": {
+    "@shared/*": ["../../shared/*"]
+  },
+  "include": ["src/**/*", "craco.config.js"],
+  "exclude": ["node_modules", "**/*.spec.ts"]
+}

@@ -1,0 +1,38 @@
+{
+  "overrides": [
+    {
+      "files": "*.{ts,tsx}",
+      "options": {
+        "arrowParens": "avoid",
+        "jsxSingleQuote": true,
+        "jsxBracketSameLine": true,
+        "singleQuote": true,
+        "semi": true,
+        "bracketSpacing": true,
+        "useTabs": false,
+        "tabWidth": 2,
+        "trailingComma": "all",
+        "printWidth": 120,
+        "endOfLine": "auto"
+      }
+    },
+    {
+      "files": "*.scss",
+      "options": {
+        "singleQuote": false,
+        "semi": true,
+        "useTabs": true,
+        "tabWidth": 2
+      }
+    },
+    {
+      "files": "*.css",
+      "options": {
+        "singleQuote": false,
+        "semi": true,
+        "useTabs": true,
+        "tabWidth": 4
+      }
+    }
+  ]
+}

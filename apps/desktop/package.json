@@ -1,0 +1,66 @@
+{
+  "author": "PIYoung(https://github.com/PIYoung)",
+  "name": "desktop",
+  "version": "0.1.0",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "start": "PORT=3000 craco start .env.development .env",
+    "start:threejs": "PORT=3000 REACT_APP_THREE_JS=true craco start .env.development .env",
+    "build": "craco build .env.production .env",
+    "test": "craco test .env.test .env",
+    "pretty": "prettier --write \"./**/*.{js,jsx,json,ts,tsx}\""
+  },
+  "dependencies": {
+    "@loadable/component": "^5.15.2",
+    "@reduxjs/toolkit": "^1.7.2",
+    "@testing-library/jest-dom": "^5.16.1",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
+    "dat.gui": "^0.7.7",
+    "flatted": "^3.2.5",
+    "immutability-helper": "^3.1.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-icons": "^4.3.1",
+    "react-redux": "^7.2.6",
+    "react-router-dom": "^6.2.1",
+    "react-scripts": "5.0.0",
+    "redux": "^4.1.2",
+    "redux-logger": "^3.0.6",
+    "redux-persist": "^6.0.0",
+    "styled-components": "^5.3.3",
+    "three": "^0.136.0",
+    "typescript": "^4.5.4",
+    "web-vitals": "^2.1.2"
+  },
+  "devDependencies": {
+    "@types/dat.gui": "^0.7.7",
+    "@types/jest": "^27.4.0",
+    "@types/loadable__component": "^5.13.4",
+    "@types/node": "^16.11.18",
+    "@types/react": "^17.0.38",
+    "@types/react-dom": "^17.0.11",
+    "@types/react-redux": "^7.1.22",
+    "@types/redux-logger": "^3.0.9",
+    "@types/styled-components": "^5.1.23",
+    "@types/three": "^0.136.1",
+    "craco-alias": "^3.0.1",
+    "eslint": "^8.6.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.5.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

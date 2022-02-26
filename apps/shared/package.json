@@ -1,0 +1,9 @@
+{
+  "author": "PIYoung(https://github.com/PIYoung)",
+  "name": "shared",
+  "version": "1.0.0",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/ip": "^1.1.0"
+  }
+}
