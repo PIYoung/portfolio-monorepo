@@ -3,6 +3,7 @@ import React, { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { BsFillGearFill } from 'react-icons/bs';
+import DraggableItem from '../../templates/DraggableItem';
 import { RootState } from '../../../reducers';
 import { setSelectedHex } from '../../../reducers/pastel.reducer';
 
@@ -41,8 +42,10 @@ export default function PastelMainAsideMain() {
         style={{ borderColor: 'var(--color-pastel-text-secondary)', backgroundColor: 'var(--color-pastel-header)' }}
         className='flex items-center justify-between border-y p-2'>
         <div className='flex items-center'>
-          <div style={{ backgroundColor: selectedHex }} className='rounded-sm w-4 h-4 mr-2' />
-          <div className='text-sm' style={{ color: 'var(--color-pastel-text)' }}>
+          <DraggableItem>
+            <div style={{ backgroundColor: selectedHex }} className='rounded-sm w-4 h-4' />
+          </DraggableItem>
+          <div className='text-sm ml-2' style={{ color: 'var(--color-pastel-text)' }}>
             {selectedHex}
           </div>
         </div>

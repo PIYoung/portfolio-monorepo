@@ -9,7 +9,6 @@ export default function DraggableItem({ children }: Props) {
   const [{ opacity }, dragRef] = useDrag(
     () => ({
       type: 'HEX',
-      item: { children },
       collect: monitor => ({
         opacity: monitor.isDragging() ? 0.5 : 1,
       }),

@@ -2,6 +2,7 @@ import * as Styled from './styled';
 
 import React, { useCallback } from 'react';
 
+import DroppableItem from '../../templates/DroppableItem';
 import PastelColors from '../../molecules/PastelColors';
 import { RootState } from '../../../reducers';
 import { useSelector } from 'react-redux';
@@ -33,5 +34,9 @@ export default function PastelMain() {
     return <div>This should not happen</div>;
   }, [selectedMenu]);
 
-  return <Styled.Container className='p-4'>{drawMain()}</Styled.Container>;
+  return (
+    <Styled.Container className='p-4'>
+      <DroppableItem>{drawMain()}</DroppableItem>
+    </Styled.Container>
+  );
 }
