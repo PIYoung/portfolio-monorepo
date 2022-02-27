@@ -12,7 +12,7 @@ interface Props {
   childrenMenu: NavigationMenu[];
 }
 
-export default function PastelNavigationMenu({ title, childrenMenu }: Props) {
+export default React.memo(function PastelNavigationMenu({ title, childrenMenu }: Props) {
   const dispatch = useDispatch();
 
   const moveTo = useCallback(
@@ -66,4 +66,4 @@ export default function PastelNavigationMenu({ title, childrenMenu }: Props) {
       {childrenMenu.map(drawChildrenMenu)}
     </Styled.Container>
   );
-}
+});

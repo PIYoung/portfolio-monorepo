@@ -2,9 +2,12 @@ import React, { useCallback, useEffect, useState } from 'react';
 
 import { Color } from '../../../interfaces/pastel.interface';
 import PastelColor from '../../atoms/PastelColor';
-import { colors } from '../../../constants/colors';
+import { RootState } from '../../../reducers';
+import { useSelector } from 'react-redux';
 
 export default function Colors() {
+  const { colors } = useSelector((state: RootState) => state.pastel);
+
   const drawColors = useCallback((color: Color, index: number) => {
     return <PastelColor key={index} title={color.title} hex={color.hex} />;
   }, []);
