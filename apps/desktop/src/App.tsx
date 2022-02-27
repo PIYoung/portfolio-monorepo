@@ -12,6 +12,7 @@ import { useSelector } from 'react-redux';
 const Main = loadable(() => import('./pages/Main'));
 const ThreeJS = loadable(() => import('./pages/ThreeJS'));
 const Pastel = loadable(() => import('./pages/Pastel'));
+const PalettsDetail = loadable(() => import('./pages/PalettsDetail'));
 
 function App() {
   const { configurations } = useSelector((state: RootState) => state.user);
@@ -24,6 +25,7 @@ function App() {
           <Route path={PATHS.MAIN} element={<Main />} />
           <Route path={PATHS.THREE_JS} element={<ThreeJS />} />
           <Route path={PATHS.PASTEL} element={<Pastel />} />
+          <Route path={PATHS.PALETTS_DETAIL} element={<PalettsDetail />} />
           <Route
             path='*'
             element={
