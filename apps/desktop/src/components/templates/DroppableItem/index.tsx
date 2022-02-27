@@ -20,7 +20,7 @@ export default function DroppableItem({ children }: Props) {
         if (selectedMenu.isDetail && currentViewedPaletts) {
           return dispatch(
             addPalettsNewColor({
-              color: { hex: selectedHex },
+              color: { hex: selectedHex, removable: true },
               index: currentViewedPaletts - 1,
             }),
           );
@@ -32,6 +32,7 @@ export default function DroppableItem({ children }: Props) {
               addNewColor({
                 title: 'Untitled Color',
                 hex: selectedHex,
+                removable: true,
               }),
             );
 
@@ -41,7 +42,7 @@ export default function DroppableItem({ children }: Props) {
                 id: paletts.length + 1,
                 uid: selectedMenu.uid === 2 ? 1 : selectedMenu.uid,
                 title: 'Untitled Palette',
-                colors: [{ hex: selectedHex }],
+                colors: [{ hex: selectedHex, removable: true }],
                 removable: true,
               }),
             );

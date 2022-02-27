@@ -13,6 +13,7 @@ export interface NavigationMenu {
 export interface Color {
   title: string;
   hex: string;
+  removable: boolean;
 }
 
 export interface Paletts {

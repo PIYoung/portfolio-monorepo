@@ -42,7 +42,10 @@ export default React.memo(function PastelHeader() {
       dispatch(
         addPalettsNewColor({
           index: currentViewedPaletts - 1,
-          color: { hex: selectedHex },
+          color: {
+            hex: selectedHex,
+            removable: true,
+          },
         }),
       );
     } else if (selectedMenu.uid === 3) {
@@ -50,6 +53,7 @@ export default React.memo(function PastelHeader() {
         addNewColor({
           title: 'Untitled Color',
           hex: selectedHex,
+          removable: true,
         }),
       );
     } else {
@@ -58,7 +62,7 @@ export default React.memo(function PastelHeader() {
           id: paletts.length + 1,
           uid: selectedMenu.uid === 2 ? 1 : selectedMenu.uid,
           title: 'Untitled Palette',
-          colors: [{ hex: selectedHex }],
+          colors: [{ hex: selectedHex, removable: true }],
           removable: true,
         }),
       );
