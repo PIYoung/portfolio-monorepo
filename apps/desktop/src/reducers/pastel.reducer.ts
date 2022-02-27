@@ -1,6 +1,6 @@
 import { createAction, createReducer, current } from '@reduxjs/toolkit';
 
-import { Color, NavigationMenu } from './../interfaces/pastel.interface';
+import { Color, NavigationMenu, Paletts } from './../interfaces/pastel.interface';
 import update from 'immutability-helper';
 import { initialPastelState } from '../constants/pastel';
 
@@ -22,6 +22,7 @@ export const addNewPastelCollection = createAction(ACTIONS.ADD_NEW_PASTEL_COLLEC
 export const addNewColor = createAction(ACTIONS.ADD_NEW_COLOR, (payload: Color) => ({ payload }));
 
 export interface PastelState {
+  paletts: Paletts[];
   colors: Color[];
   selectedMenu: NavigationMenu;
   selectedHex: string;

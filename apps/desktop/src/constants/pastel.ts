@@ -1,8 +1,10 @@
 import { PastelState } from '../reducers/pastel.reducer';
 import { colors } from './colors';
+import { paletts } from './paletts';
 
 export const initialPastelState: PastelState = {
-  colors: colors,
+  paletts,
+  colors,
   selectedMenu: {
     uid: 1,
     iconKey: 1,

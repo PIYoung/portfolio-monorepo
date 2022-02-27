@@ -13,3 +13,10 @@ export interface Color {
   title: string;
   hex: string;
 }
+
+export interface Paletts {
+  title: string;
+  uid: number;
+  colors: Omit<Color, 'title'>[];
+  lastVisited?: Date;
+}

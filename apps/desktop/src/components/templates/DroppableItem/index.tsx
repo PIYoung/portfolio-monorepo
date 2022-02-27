@@ -43,7 +43,9 @@ export default function DroppableItem({ children }: Props) {
     [selectedMenu, selectedHex, dispatch],
   );
 
-  console.log(collectedProps);
-
-  return <div ref={drop}>{children}</div>;
+  return (
+    <div style={{ height: 'inherit' }} ref={drop}>
+      {children}
+    </div>
+  );
 }

@@ -3,36 +3,35 @@ import * as Styled from './styled';
 import React, { useCallback } from 'react';
 
 import DroppableItem from '../../templates/DroppableItem';
+import Paletts from '../../molecules/Paletts';
 import PastelColors from '../../molecules/PastelColors';
 import { RootState } from '../../../reducers';
 import { useSelector } from 'react-redux';
 
 export default function PastelMain() {
-  const { selectedMenu } = useSelector((state: RootState) => state.pastel);
+  const { paletts, selectedMenu } = useSelector((state: RootState) => state.pastel);
 
   const drawMain = useCallback(() => {
     switch (selectedMenu.uid) {
       case 1:
-        break;
+        return <Paletts paletts={paletts} />;
 
       case 2:
-        break;
+        return (
+          <Paletts
+            paletts={paletts.filter(e => e.lastVisited).sort((a, b) => (a.lastVisited > b.lastVisited ? 1 : -1))}
+          />
+        );
 
       case 3:
         return <PastelColors />;
 
-      case 4:
-        break;
-
-      case 5:
-        break;
-
       default:
-        break;
+        return <Paletts paletts={paletts.filter(e => e.uid === selectedMenu.uid)} />;
     }
 
     return <div>This should not happen</div>;
-  }, [selectedMenu]);
+  }, [selectedMenu, paletts]);
 
   return (
     <Styled.Container className='p-4'>
