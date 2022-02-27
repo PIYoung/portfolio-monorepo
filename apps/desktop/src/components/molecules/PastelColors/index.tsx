@@ -13,7 +13,7 @@ export default function Colors({ palettsColors }: Props) {
   const { colors } = useSelector((state: RootState) => state.pastel);
 
   const drawColors = useCallback((color: Color, index: number) => {
-    return <PastelColor key={index} title={color.title} hex={color.hex} />;
+    return <PastelColor key={index} title={color.title} hex={color.hex} removable={color.removable} index={index} />;
   }, []);
 
   return (
