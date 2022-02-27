@@ -42,6 +42,7 @@ export default function DroppableItem({ children }: Props) {
                 uid: selectedMenu.uid === 2 ? 1 : selectedMenu.uid,
                 title: 'Untitled Palette',
                 colors: [{ hex: selectedHex }],
+                removable: true,
               }),
             );
         }

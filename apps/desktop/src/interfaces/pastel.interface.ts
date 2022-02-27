@@ -21,4 +21,5 @@ export interface Paletts {
   uid: number;
   colors: Omit<Color, 'title'>[];
   lastVisited?: Date;
+  removable: boolean;
 }
