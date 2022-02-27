@@ -39,7 +39,7 @@ export default function DroppableItem({ children }: Props) {
           default:
             return dispatch(
               addNewPaletts({
-                id: paletts.length + 1,
+                id: paletts[paletts.length - 1].id + 1,
                 uid: selectedMenu.uid === 2 ? 1 : selectedMenu.uid,
                 title: 'Untitled Palette',
                 colors: [{ hex: selectedHex, removable: true }],
