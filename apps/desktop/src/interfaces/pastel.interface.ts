@@ -7,6 +7,7 @@ export interface NavigationMenu {
   children?: NavigationMenu[];
   to?: string;
   removable: boolean;
+  isDetail?: boolean;
 }
 
 export interface Color {

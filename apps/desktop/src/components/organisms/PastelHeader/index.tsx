@@ -4,10 +4,24 @@ import { BsChevronLeft, BsPlus, BsSearch } from 'react-icons/bs';
 import React, { useCallback } from 'react';
 
 import { RootState } from '../../../reducers';
+import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 export default React.memo(function PastelHeader() {
+  const navigate = useNavigate();
   const { selectedMenu } = useSelector((state: RootState) => state.pastel);
+
+  const goBack = useCallback(
+    (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      if (selectedMenu.isDetail) {
+        navigate(-1);
+      }
+    },
+    [selectedMenu, navigate],
+  );
 
   const addPalette = useCallback(() => {
     console.log('addPalette');
@@ -16,7 +30,7 @@ export default React.memo(function PastelHeader() {
   return (
     <Styled.Container className='p-4 flex items-center justify-between'>
       <div className='flex items-center'>
-        <div style={{ color: 'var(--color-pastel-text-secondary)' }} className='mr-2'>
+        <div onClick={goBack} style={{ color: 'var(--color-pastel-text-secondary)' }} className='cursor-pointer mr-2'>
           <BsChevronLeft />
         </div>
         <div style={{ color: 'var(--color-pastel-text)' }}>{selectedMenu.title}</div>

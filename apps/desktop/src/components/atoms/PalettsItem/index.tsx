@@ -31,6 +31,7 @@ export default React.memo(function PalettsItem({ item, index }: Props) {
         setSelectedMenu({
           ...selectedMenu,
           title: item.title,
+          isDetail: true,
         }),
       );
       navigate(`/paletts/${item.id}`);
