@@ -4,10 +4,8 @@ import { BsClock, BsFolder, BsGrid, BsViewStacked } from 'react-icons/bs';
 import React, { useCallback } from 'react';
 
 import { NavigationMenu } from '../../../interfaces/pastel.interface';
-import { PATHS } from '../../../constants';
 import { setSelectedMenu } from '../../../reducers/pastel.reducer';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 
 interface Props {
   title: string;
@@ -15,7 +13,6 @@ interface Props {
 }
 
 export default function PastelNavigationMenu({ title, childrenMenu }: Props) {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const moveTo = useCallback(
@@ -24,12 +21,8 @@ export default function PastelNavigationMenu({ title, childrenMenu }: Props) {
       e.stopPropagation();
 
       dispatch(setSelectedMenu(menu));
-      return navigate({
-        pathname: PATHS.PASTEL,
-        search: `?selectedMenu=${menu.uid}`,
-      });
     },
-    [navigate, dispatch],
+    [dispatch],
   );
 
   const drawChildrenMenu = useCallback(
