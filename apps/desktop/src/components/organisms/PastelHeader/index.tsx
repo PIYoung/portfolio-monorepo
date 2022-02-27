@@ -1,6 +1,6 @@
 import * as Styled from './styled';
 
-import { BsChevronLeft, BsPlus, BsSearch } from 'react-icons/bs';
+import { BsArrowRepeat, BsChevronLeft, BsPlus, BsSearch } from 'react-icons/bs';
 import React, { useCallback } from 'react';
 import { addNewPaletts, addPalettsNewColor } from '../../../reducers/pastel.reducer';
 import { useDispatch, useSelector } from 'react-redux';
@@ -24,6 +24,14 @@ export default React.memo(function PastelHeader() {
     },
     [selectedMenu, navigate],
   );
+
+  const resetLocalStorage = useCallback((e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    localStorage.clear();
+    window.location.reload();
+  }, []);
 
   const addPaletteOrColor = useCallback(() => {
     if (selectedMenu.isDetail && currentViewedPaletts) {
@@ -54,7 +62,10 @@ export default React.memo(function PastelHeader() {
         <div style={{ color: 'var(--color-pastel-text)' }}>{selectedMenu.title}</div>
       </div>
       <div style={{ color: 'var(--color-pastel-text)' }} className='flex items-center'>
-        <div className='mr-2 cursor-pointer' onClick={addPaletteOrColor}>
+        <div className='mr-2 cursor-pointer hover:bg-slate-500 hover:rounded-md' onClick={resetLocalStorage}>
+          <BsArrowRepeat size={20} />
+        </div>
+        <div className='mr-2 cursor-pointer hover:bg-slate-500 hover:rounded-md' onClick={addPaletteOrColor}>
           <BsPlus size={20} />
         </div>
         <div className='flex items-center p-1 w-48 border rounded-md'>
