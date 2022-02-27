@@ -35,7 +35,7 @@ export default React.memo(function PalettsItem({ item, index }: Props) {
       );
       navigate(`/paletts/${item.id}`);
     },
-    [item, selectedMenu, navigate, dispatch],
+    [item, index, selectedMenu, navigate, dispatch],
   );
 
   const drawItems = useCallback(
