@@ -1,6 +1,6 @@
 import * as Styled from './styled';
 
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { setCurrentViewedPalettes, setSelectedMenu } from '../../reducers/pastel.reducer';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -11,11 +11,16 @@ import PastelMainAside from '../../components/organisms/PastelMainAside';
 import PastelNavigation from '../../components/organisms/PastelNavigation';
 import { RootState } from '../../reducers';
 import { Steps } from 'intro.js-react';
+import { restartIntro } from '../../reducers/user.reducer';
 
 export default function Pastel() {
   const dispatch = useDispatch();
   const { configurations } = useSelector((state: RootState) => state.user);
   const { menus, selectedMenu } = useSelector((state: RootState) => state.pastel);
+
+  const handleExit = useCallback(() => {
+    dispatch(restartIntro(false));
+  }, [dispatch]);
 
   useEffect(() => {
     if (selectedMenu.isDetail) {
@@ -55,7 +60,7 @@ export default function Pastel() {
         </Styled.FlexContainer>
       </ContextMenuContainer>
       <Steps
-        enabled={true}
+        enabled={configurations.showIntro}
         steps={[
           {
             element: '.piystel-1',
@@ -317,7 +322,7 @@ export default function Pastel() {
           },
         ]}
         initialStep={0}
-        onExit={() => {}}
+        onExit={handleExit}
       />
     </React.Fragment>
   );
