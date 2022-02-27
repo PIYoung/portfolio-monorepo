@@ -41,7 +41,7 @@ export default function PalettsDetail() {
         break;
       }
     }
-  }, [id, selectedMenu, paletts, dispatch]);
+  }, [id, selectedMenu, paletts, currentViewedPaletts, dispatch]);
 
   return (
     <Styled.FlexContainer>
