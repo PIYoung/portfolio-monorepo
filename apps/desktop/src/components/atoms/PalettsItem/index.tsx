@@ -1,42 +1,23 @@
 import { Color, Paletts } from '../../../interfaces';
 import React, { useCallback } from 'react';
-import { setPalettsLastVisited, setSelectedMenu } from '../../../reducers/pastel.reducer';
-import { useDispatch, useSelector } from 'react-redux';
 
-import { RootState } from '../../../reducers';
 import { useNavigate } from 'react-router-dom';
 
 interface Props {
   item: Paletts;
-  index: number;
 }
 
-export default React.memo(function PalettsItem({ item, index }: Props) {
+export default React.memo(function PalettsItem({ item }: Props) {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const { selectedMenu } = useSelector((state: RootState) => state.pastel);
 
   const handleClick = useCallback(
     (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
       e.preventDefault();
       e.stopPropagation();
 
-      dispatch(
-        setPalettsLastVisited({
-          date: new Date(),
-          index,
-        }),
-      );
-      dispatch(
-        setSelectedMenu({
-          ...selectedMenu,
-          title: item.title,
-          isDetail: true,
-        }),
-      );
       navigate(`/paletts/${item.id}`);
     },
-    [item, index, selectedMenu, navigate, dispatch],
+    [item, navigate],
   );
 
   const drawItems = useCallback(

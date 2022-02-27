@@ -10,7 +10,7 @@ interface Props {
 
 export default function Paletts({ paletts }: Props) {
   const drawPalettsItem = useCallback((item: I.Paletts, index: number) => {
-    return <PalettsItem key={index} item={item} index={index} />;
+    return <PalettsItem key={index} item={item} />;
   }, []);
 
   return <div className='flex flex-wrap justify-between'>{paletts.map(drawPalettsItem)}</div>;
