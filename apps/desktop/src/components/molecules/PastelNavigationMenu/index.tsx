@@ -105,7 +105,7 @@ export default React.memo(function PastelNavigationMenu({ pIndex, title, childre
         </div>
       );
     },
-    [renameMenuIndex, moveTo],
+    [renameMenuIndex, pIndex, moveTo, renameMenu],
   );
 
   return (
