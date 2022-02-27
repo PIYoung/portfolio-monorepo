@@ -10,8 +10,8 @@ import { RootState } from '../../../reducers';
 import { addNewPastelCollection } from '../../../reducers/pastel.reducer';
 
 export default React.memo(function PastelNavigation() {
-  const { menus } = useSelector((state: RootState) => state.pastel);
   const dispatch = useDispatch();
+  const { menus } = useSelector((state: RootState) => state.pastel);
 
   const drawMenus = useCallback((menu: NavigationMenu, index: number) => {
     return <PastelNavigationMenu key={index} title={menu.title} childrenMenu={menu.children} />;
