@@ -1,4 +1,6 @@
 import App from './App';
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
 import { PersistGate } from 'redux-persist/integration/react';
 import { Provider } from 'react-redux';
 import React from 'react';
@@ -10,7 +12,9 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={reducers.store}>
       <PersistGate persistor={reducers.persistor}>
-        <App />
+        <DndProvider backend={HTML5Backend}>
+          <App />
+        </DndProvider>
       </PersistGate>
     </Provider>
   </React.StrictMode>,
