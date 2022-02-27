@@ -1,4 +1,5 @@
 import './App.css';
+import 'intro.js/introjs.css';
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 

@@ -10,9 +10,11 @@ import PastelMain from '../../components/organisms/PastelMain';
 import PastelMainAside from '../../components/organisms/PastelMainAside';
 import PastelNavigation from '../../components/organisms/PastelNavigation';
 import { RootState } from '../../reducers';
+import { Steps } from 'intro.js-react';
 
 export default function Pastel() {
   const dispatch = useDispatch();
+  const { configurations } = useSelector((state: RootState) => state.user);
   const { menus, selectedMenu } = useSelector((state: RootState) => state.pastel);
 
   useEffect(() => {

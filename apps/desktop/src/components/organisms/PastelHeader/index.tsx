@@ -144,7 +144,29 @@ export default React.memo(function PastelHeader() {
   );
 
   return (
-    <Styled.Container className='p-4 flex items-center justify-between'>
+    <Styled.Container className='piystel-1 p-4 flex items-center justify-between'>
+      <Steps
+        enabled={true}
+        steps={[
+          {
+            element: '.piystel-1',
+            intro: <p>piystel에 오신 걸 환영합니다.</p>,
+            position: 'bottom',
+          },
+          {
+            element: '.piystel-1',
+            intro: <p>잠시, piystel에 대해 설명드리겠습니다.</p>,
+            position: 'bottom',
+          },
+          {
+            element: '.piystel-2',
+            intro: <p></p>,
+            position: 'bottom',
+          },
+        ]}
+        initialStep={0}
+        onExit={() => {}}
+      />
       <div className='flex items-center'>
         <div onClick={goBack} style={{ color: 'var(--color-pastel-text-secondary)' }} className='cursor-pointer mr-2'>
           <BsChevronLeft />
@@ -159,8 +181,8 @@ export default React.memo(function PastelHeader() {
           </div>
         )}
       </div>
-      <div style={{ color: 'var(--color-pastel-text)' }} className='flex items-center'>
-        <div className='mr-2 cursor-pointer hover:bg-slate-500 hover:rounded-md' onClick={goHome}>
+      <div style={{ color: 'var(--color-pastel-text)' }} className='piystel-2 flex items-center'>
+        <div className=' mr-2 cursor-pointer hover:bg-slate-500 hover:rounded-md' onClick={goHome}>
           <BsHouseDoor size={20} />
         </div>
         <div className='mr-2 cursor-pointer hover:bg-slate-500 hover:rounded-md' onClick={changeColorTheme}>
