@@ -1,6 +1,7 @@
 import * as Styled from './styled';
 
 import React, { useEffect } from 'react';
+import { setCurrentViewedPalettes, setSelectedMenu } from '../../reducers/pastel.reducer';
 import { useDispatch, useSelector } from 'react-redux';
 
 import PastelHeader from '../../components/organisms/PastelHeader';
@@ -8,7 +9,6 @@ import PastelMain from '../../components/organisms/PastelMain';
 import PastelMainAside from '../../components/organisms/PastelMainAside';
 import PastelNavigation from '../../components/organisms/PastelNavigation';
 import { RootState } from '../../reducers';
-import { setSelectedMenu } from '../../reducers/pastel.reducer';
 
 export default function Pastel() {
   const dispatch = useDispatch();
@@ -25,6 +25,7 @@ export default function Pastel() {
 
           if (child.uid === selectedMenu.uid) {
             dispatch(setSelectedMenu(child));
+            dispatch(setCurrentViewedPalettes(null));
             hasDone = true;
 
             break;

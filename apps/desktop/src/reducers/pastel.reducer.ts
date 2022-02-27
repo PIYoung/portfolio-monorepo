@@ -10,6 +10,8 @@ const ACTIONS = <const>{
   SET_PALETTS_LAST_VISITED: 'Pastel/SET_PALETTS_LAST_VISITED',
   SET_CURRENT_VIEW_PALETTS: 'Pastel/SET_CURRENT_VIEW_PALETTS',
   ADD_NEW_PASTEL_COLLECTION: 'Pastel/ADD_NEW_PASTEL_COLLECTION',
+  ADD_NEW_PALLETS: 'Pastel/ADD_NEW_PALLETS',
+  ADD_PALLETS_NEW_COLOR: 'Pastel/ADD_PALLETS_NEW_COLOR',
   ADD_NEW_COLOR: 'Pastel/ADD_NEW_COLOR',
 };
 
@@ -29,6 +31,13 @@ export const setCurrentViewedPalettes = createAction(ACTIONS.SET_CURRENT_VIEW_PA
 export const addNewPastelCollection = createAction(ACTIONS.ADD_NEW_PASTEL_COLLECTION, (payload: NavigationMenu) => ({
   payload,
 }));
+
+export const addNewPaletts = createAction(ACTIONS.ADD_NEW_PALLETS, (payload: Paletts) => ({ payload }));
+
+export const addPalettsNewColor = createAction(
+  ACTIONS.ADD_PALLETS_NEW_COLOR,
+  (payload: { color: Omit<Color, 'title'>; index: number }) => ({ payload }),
+);
 
 export const addNewColor = createAction(ACTIONS.ADD_NEW_COLOR, (payload: Color) => ({ payload }));
 
@@ -95,6 +104,29 @@ const pastelReducer = createReducer<PastelState>(initialState, builder => {
           [index]: {
             children: {
               $push: [action.payload],
+            },
+          },
+        },
+      });
+    })
+    .addCase(addNewPaletts, (state, action) => {
+      const currState = current(state);
+
+      return update(currState, {
+        paletts: {
+          $push: [action.payload],
+        },
+      });
+    })
+    .addCase(addPalettsNewColor, (state, action) => {
+      const currState = current(state);
+      const { color, index } = action.payload;
+
+      return update(currState, {
+        paletts: {
+          [index]: {
+            colors: {
+              $push: [color],
             },
           },
         },

@@ -2,14 +2,16 @@ import * as Styled from './styled';
 
 import { BsChevronLeft, BsPlus, BsSearch } from 'react-icons/bs';
 import React, { useCallback } from 'react';
+import { addNewPaletts, addPalettsNewColor } from '../../../reducers/pastel.reducer';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { RootState } from '../../../reducers';
 import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 
 export default React.memo(function PastelHeader() {
   const navigate = useNavigate();
-  const { selectedMenu } = useSelector((state: RootState) => state.pastel);
+  const dispatch = useDispatch();
+  const { paletts, currentViewedPaletts, selectedHex, selectedMenu } = useSelector((state: RootState) => state.pastel);
 
   const goBack = useCallback(
     (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
@@ -23,9 +25,25 @@ export default React.memo(function PastelHeader() {
     [selectedMenu, navigate],
   );
 
-  const addPalette = useCallback(() => {
-    console.log('addPalette');
-  }, []);
+  const addPaletteOrColor = useCallback(() => {
+    if (selectedMenu.isDetail && currentViewedPaletts) {
+      dispatch(
+        addPalettsNewColor({
+          index: currentViewedPaletts - 1,
+          color: { hex: selectedHex },
+        }),
+      );
+    } else {
+      dispatch(
+        addNewPaletts({
+          id: paletts.length + 1,
+          uid: 1,
+          title: 'Untitled Palette',
+          colors: [{ hex: selectedHex }],
+        }),
+      );
+    }
+  }, [dispatch, paletts, currentViewedPaletts, selectedHex, selectedMenu]);
 
   return (
     <Styled.Container className='p-4 flex items-center justify-between'>
@@ -36,7 +54,7 @@ export default React.memo(function PastelHeader() {
         <div style={{ color: 'var(--color-pastel-text)' }}>{selectedMenu.title}</div>
       </div>
       <div style={{ color: 'var(--color-pastel-text)' }} className='flex items-center'>
-        <div className='mr-2 cursor-pointer' onClick={addPalette}>
+        <div className='mr-2 cursor-pointer' onClick={addPaletteOrColor}>
           <BsPlus size={20} />
         </div>
         <div className='flex items-center p-1 w-48 border rounded-md'>

@@ -11,6 +11,8 @@ export default function PalettsDetailMain() {
   const { paletts, currentViewedPaletts } = useSelector((state: RootState) => state.pastel);
 
   const drawMain = useCallback(() => {
+    if (!currentViewedPaletts) return;
+
     const _paletts = paletts.find(e => e.id === currentViewedPaletts);
 
     return <PastelColors palettsColors={_paletts.colors} />;
