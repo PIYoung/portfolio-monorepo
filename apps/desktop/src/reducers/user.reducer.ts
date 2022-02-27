@@ -6,7 +6,7 @@ const ACTIONS = <const>{
   SET_USER_CONFIGURATIONS: 'User/SET_USER_CONFIGURATIONS',
 };
 
-export const setUserConfigurations = createAction(ACTIONS.SET_USER_CONFIGURATIONS, (payload: UserConfigurations) => ({
+export const setUserConfigurations = createAction(ACTIONS.SET_USER_CONFIGURATIONS, (payload: 'dark' | 'light') => ({
   payload,
 }));
 
@@ -17,6 +17,7 @@ export interface UserState {
 const initialState: UserState = {
   configurations: {
     theme: 'dark',
+    showIntro: true,
   },
 };
 
@@ -26,7 +27,9 @@ const userReducer = createReducer<UserState>(initialState, builder => {
 
     return update(currState, {
       configurations: {
-        $set: action.payload,
+        theme: {
+          $set: action.payload,
+        },
       },
     });
   });

@@ -9,6 +9,7 @@ import {
   BsPlus,
   BsSearch,
 } from 'react-icons/bs';
+import { Hints, Steps } from 'intro.js-react';
 import React, { useCallback } from 'react';
 import { addNewColor, addNewPaletts, addPalettsNewColor, setSelectedMenu } from '../../../reducers/pastel.reducer';
 import { useDispatch, useSelector } from 'react-redux';
@@ -127,7 +128,7 @@ export default React.memo(function PastelHeader() {
       e.stopPropagation();
 
       const theme = configurations.theme === 'light' ? 'dark' : 'light';
-      dispatch(setUserConfigurations({ theme }));
+      dispatch(setUserConfigurations(theme));
     },
     [dispatch, configurations],
   );

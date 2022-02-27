@@ -17,7 +17,7 @@ export default function ColorTheme() {
       e.stopPropagation();
 
       const theme = configurations.theme === 'light' ? 'dark' : 'light';
-      dispatch(setUserConfigurations({ theme }));
+      dispatch(setUserConfigurations(theme));
     },
     [dispatch, configurations],
   );
