@@ -1,15 +1,19 @@
 import { Color, Paletts } from '../../../interfaces';
 import React, { useCallback } from 'react';
+import { setPalettsRenameIndex, updatePaletts } from '../../../reducers/pastel.reducer';
+import { useDispatch, useSelector } from 'react-redux';
 
+import { RootState } from '../../../reducers';
 import { useNavigate } from 'react-router-dom';
 
 interface Props {
   item: Paletts;
-  index: number;
 }
 
-export default React.memo(function PalettsItem({ item, index }: Props) {
+export default React.memo(function PalettsItem({ item }: Props) {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { renamePalettsIndex } = useSelector((state: RootState) => state.pastel);
 
   const handleClick = useCallback(
     (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
@@ -19,6 +23,24 @@ export default React.memo(function PalettsItem({ item, index }: Props) {
       navigate(`/paletts/${item.id}`);
     },
     [item, navigate],
+  );
+
+  const renamePaletts = useCallback(
+    (e: React.KeyboardEvent<HTMLInputElement>) => {
+      const target = e.target;
+      if (target instanceof HTMLInputElement) {
+        if (e.key === 'Enter') {
+          dispatch(
+            updatePaletts({
+              id: renamePalettsIndex,
+              title: target.value,
+            }),
+          );
+          dispatch(setPalettsRenameIndex(null));
+        }
+      }
+    },
+    [renamePalettsIndex, dispatch],
   );
 
   const drawItems = useCallback(
@@ -37,7 +59,7 @@ export default React.memo(function PalettsItem({ item, index }: Props) {
         <div
           data-type={'paletts'}
           data-removable={item.removable}
-          data-index={index}
+          data-index={item.id}
           key={index}
           className='flex-grow'
           style={{ backgroundColor: e.hex, width, height }}
@@ -55,10 +77,23 @@ export default React.memo(function PalettsItem({ item, index }: Props) {
       <div
         data-type={'paletts'}
         data-removable={item.removable}
-        data-index={index}
+        data-index={item.id}
         className='text-sm'
         style={{ color: 'var(--color-pastel-text)' }}>
-        {item.title}
+        {renamePalettsIndex === item.id ? (
+          <input
+            onKeyPress={renamePaletts}
+            className='rounded-sm pl-1 text-xs'
+            style={{
+              backgroundColor: 'var(--color-pastel-background)',
+              width: '100%',
+            }}
+            autoFocus={true}
+            placeholder={item.title}
+          />
+        ) : (
+          item.title
+        )}
       </div>
     </div>
   );

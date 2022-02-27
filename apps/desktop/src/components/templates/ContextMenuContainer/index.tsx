@@ -1,5 +1,12 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { deleteNavigationMenu, setNavigationMenuRenameIndex } from '../../../reducers/pastel.reducer';
+import {
+  deleteColor,
+  deleteNavigationMenu,
+  deletePaletts,
+  setColorRenameIndex,
+  setNavigationMenuRenameIndex,
+  setPalettsRenameIndex,
+} from '../../../reducers/pastel.reducer';
 
 import { useDispatch } from 'react-redux';
 
@@ -11,6 +18,7 @@ export default function ContextMenuContainer({ children }) {
   const [type, setType] = useState<string>('');
   const [menuIndex, setMenuIndex] = useState<number>(0);
   const [palettsIndex, setPalettsIndex] = useState<number>(0);
+  const [colorIndex, setColorIndex] = useState<number>(0);
 
   const drawContextMenu = useCallback((e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     e.preventDefault();
@@ -30,6 +38,11 @@ export default function ContextMenuContainer({ children }) {
             setPalettsIndex(Number(target.dataset.index));
             break;
 
+          case 'colors':
+            setType(target.dataset.type);
+            setColorIndex(Number(target.dataset.index));
+            break;
+
           default:
             break;
         }
@@ -47,9 +60,12 @@ export default function ContextMenuContainer({ children }) {
       e.stopPropagation();
 
       dispatch(setNavigationMenuRenameIndex(null));
+      dispatch(setPalettsRenameIndex(null));
+      dispatch(setColorRenameIndex(null));
       setShowContextMenu(false);
       setMenuIndex(0);
       setPalettsIndex(0);
+      setColorIndex(0);
       setType('');
     },
     [dispatch],
@@ -65,6 +81,14 @@ export default function ContextMenuContainer({ children }) {
           dispatch(setNavigationMenuRenameIndex(menuIndex));
           break;
 
+        case 'paletts':
+          dispatch(setPalettsRenameIndex(palettsIndex));
+          break;
+
+        case 'colors':
+          dispatch(setColorRenameIndex(colorIndex));
+          break;
+
         default:
           break;
       }
@@ -72,9 +96,10 @@ export default function ContextMenuContainer({ children }) {
       setShowContextMenu(false);
       setMenuIndex(0);
       setPalettsIndex(0);
+      setColorIndex(0);
       setType('');
     },
-    [menuIndex, type, dispatch],
+    [menuIndex, palettsIndex, colorIndex, type, dispatch],
   );
 
   const remove = useCallback(
@@ -85,7 +110,14 @@ export default function ContextMenuContainer({ children }) {
       switch (type) {
         case 'menu':
           dispatch(deleteNavigationMenu(menuIndex));
+          break;
 
+        case 'paletts':
+          dispatch(deletePaletts(palettsIndex));
+          break;
+
+        case 'colors':
+          dispatch(deleteColor(colorIndex));
           break;
 
         default:
@@ -95,16 +127,20 @@ export default function ContextMenuContainer({ children }) {
       setShowContextMenu(false);
       setMenuIndex(0);
       setPalettsIndex(0);
+      setColorIndex(0);
       setType('');
     },
-    [type, menuIndex, dispatch],
+    [menuIndex, palettsIndex, colorIndex, type, dispatch],
   );
 
   useEffect(() => {
     dispatch(setNavigationMenuRenameIndex(null));
+    dispatch(setPalettsRenameIndex(null));
+    dispatch(setColorRenameIndex(null));
     setShowContextMenu(false);
     setMenuIndex(0);
     setPalettsIndex(0);
+    setColorIndex(0);
     setType('');
   }, [dispatch]);
 
@@ -113,10 +149,10 @@ export default function ContextMenuContainer({ children }) {
       {children}
       {showContextMenu && (
         <div className='absolute rounded-md' style={{ top, left, backgroundColor: 'var(--color-primary)' }}>
-          <div onClick={rename} className='text-sm rounded-md hover:bg-slate-500 hover:text-gray-200 p-3'>
+          <div onClick={rename} className='text-sm rounded-t-md hover:bg-slate-500 hover:text-gray-200 p-3'>
             Rename
           </div>
-          <div onClick={remove} className='text-sm rounded-md hover:bg-slate-500 hover:text-gray-200 p-3'>
+          <div onClick={remove} className='text-sm rounded-b-md hover:bg-slate-500 hover:text-gray-200 p-3'>
             Delete
           </div>
         </div>

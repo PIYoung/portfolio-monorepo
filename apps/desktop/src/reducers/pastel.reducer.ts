@@ -51,7 +51,7 @@ export const updateNavigationMenu = createAction(
   (payload: { index: number; title: string }) => ({ payload }),
 );
 
-export const updatePaletts = createAction(ACTIONS.UPDATE_PALETTS, (payload: { index: number; title: string }) => ({
+export const updatePaletts = createAction(ACTIONS.UPDATE_PALETTS, (payload: { id: number; title: string }) => ({
   payload,
 }));
 
@@ -182,10 +182,11 @@ const pastelReducer = createReducer<PastelState>(initialState, builder => {
     })
     .addCase(updatePaletts, (state, action) => {
       const currState = current(state);
+      const index = currState.paletts.findIndex(e => e.id === action.payload.id);
 
       return update(currState, {
         paletts: {
-          [action.payload.index]: {
+          [index]: {
             title: {
               $set: action.payload.title,
             },
@@ -228,10 +229,11 @@ const pastelReducer = createReducer<PastelState>(initialState, builder => {
     })
     .addCase(deletePaletts, (state, action) => {
       const currState = current(state);
+      const index = currState.paletts.findIndex(e => e.id === action.payload);
 
       return update(currState, {
         paletts: {
-          $splice: [[action.payload, 1]],
+          $splice: [[index, 1]],
         },
       });
     })

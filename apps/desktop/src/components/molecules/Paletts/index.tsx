@@ -10,7 +10,7 @@ interface Props {
 
 export default function Paletts({ paletts }: Props) {
   const drawPalettsItem = useCallback((item: I.Paletts, index: number) => {
-    return <PalettsItem key={index} index={index} item={item} />;
+    return <PalettsItem key={index} item={item} />;
   }, []);
 
   return (
