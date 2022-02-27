@@ -1,8 +1,8 @@
+import { addNewColor, addNewPaletts, addPalettsNewColor } from '../../../reducers/pastel.reducer';
 import { useDispatch, useSelector } from 'react-redux';
 
 import React from 'react';
 import { RootState } from '../../../reducers';
-import { addNewColor } from '../../../reducers/pastel.reducer';
 import { useDrop } from 'react-dnd';
 
 interface Props {
@@ -11,36 +11,43 @@ interface Props {
 
 export default function DroppableItem({ children }: Props) {
   const dispatch = useDispatch();
-  const { selectedMenu, selectedHex } = useSelector((state: RootState) => state.pastel);
+  const { paletts, currentViewedPaletts, selectedMenu, selectedHex } = useSelector((state: RootState) => state.pastel);
 
-  const [collectedProps, drop] = useDrop(
+  const [, drop] = useDrop(
     {
       accept: 'HEX',
       drop: () => {
+        if (selectedMenu.isDetail && currentViewedPaletts) {
+          return dispatch(
+            addPalettsNewColor({
+              color: { hex: selectedHex },
+              index: currentViewedPaletts - 1,
+            }),
+          );
+        }
+
         switch (selectedMenu.uid) {
-          case 1:
-            break;
-
-          case 2:
-            break;
-
           case 3:
-            dispatch(
+            return dispatch(
               addNewColor({
                 title: 'Untitled Color',
                 hex: selectedHex,
               }),
             );
-            break;
 
           default:
-            break;
+            return dispatch(
+              addNewPaletts({
+                id: paletts.length + 1,
+                uid: selectedMenu.uid === 2 ? 1 : selectedMenu.uid,
+                title: 'Untitled Palette',
+                colors: [{ hex: selectedHex }],
+              }),
+            );
         }
-
-        return console.log('This should not happen');
       },
     },
-    [selectedMenu, selectedHex, dispatch],
+    [paletts, selectedMenu, selectedHex, dispatch],
   );
 
   return (
