@@ -2,7 +2,7 @@ import * as Styled from './styled';
 
 import { BsArrowRepeat, BsChevronLeft, BsPlus, BsSearch } from 'react-icons/bs';
 import React, { useCallback } from 'react';
-import { addNewPaletts, addPalettsNewColor, setSelectedMenu } from '../../../reducers/pastel.reducer';
+import { addNewColor, addNewPaletts, addPalettsNewColor, setSelectedMenu } from '../../../reducers/pastel.reducer';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { RootState } from '../../../reducers';
@@ -45,11 +45,18 @@ export default React.memo(function PastelHeader() {
           color: { hex: selectedHex },
         }),
       );
+    } else if (selectedMenu.uid === 3) {
+      dispatch(
+        addNewColor({
+          title: 'Untitled Color',
+          hex: selectedHex,
+        }),
+      );
     } else {
       dispatch(
         addNewPaletts({
           id: paletts.length + 1,
-          uid: 1,
+          uid: selectedMenu.uid === 2 ? 1 : selectedMenu.uid,
           title: 'Untitled Palette',
           colors: [{ hex: selectedHex }],
         }),
