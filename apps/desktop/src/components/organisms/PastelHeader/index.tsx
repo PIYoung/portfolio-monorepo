@@ -5,6 +5,7 @@ import {
   BsChevronLeft,
   BsFillLightbulbFill,
   BsFillLightbulbOffFill,
+  BsHouseDoor,
   BsPlus,
   BsSearch,
 } from 'react-icons/bs';
@@ -12,6 +13,7 @@ import React, { useCallback } from 'react';
 import { addNewColor, addNewPaletts, addPalettsNewColor, setSelectedMenu } from '../../../reducers/pastel.reducer';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { PATHS } from '../../../constants';
 import { RootState } from '../../../reducers';
 import { setUserConfigurations } from '../../../reducers/user.reducer';
 import { useInput } from '../../../hooks';
@@ -130,6 +132,16 @@ export default React.memo(function PastelHeader() {
     [dispatch, configurations],
   );
 
+  const goHome = useCallback(
+    (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      navigate(PATHS.MAIN);
+    },
+    [navigate],
+  );
+
   return (
     <Styled.Container className='p-4 flex items-center justify-between'>
       <div className='flex items-center'>
@@ -147,6 +159,9 @@ export default React.memo(function PastelHeader() {
         )}
       </div>
       <div style={{ color: 'var(--color-pastel-text)' }} className='flex items-center'>
+        <div className='mr-2 cursor-pointer hover:bg-slate-500 hover:rounded-md' onClick={goHome}>
+          <BsHouseDoor size={20} />
+        </div>
         <div className='mr-2 cursor-pointer hover:bg-slate-500 hover:rounded-md' onClick={changeColorTheme}>
           {configurations.theme === 'light' ? <BsFillLightbulbFill size={20} /> : <BsFillLightbulbOffFill size={20} />}
         </div>
