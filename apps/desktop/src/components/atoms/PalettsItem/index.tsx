@@ -5,9 +5,10 @@ import { useNavigate } from 'react-router-dom';
 
 interface Props {
   item: Paletts;
+  index: number;
 }
 
-export default React.memo(function PalettsItem({ item }: Props) {
+export default React.memo(function PalettsItem({ item, index }: Props) {
   const navigate = useNavigate();
 
   const handleClick = useCallback(
@@ -32,7 +33,16 @@ export default React.memo(function PalettsItem({ item }: Props) {
         height = '60px';
       }
 
-      return <div key={index} className='flex-grow' style={{ backgroundColor: e.hex, width, height }} />;
+      return (
+        <div
+          data-type={'paletts'}
+          data-removable={item.removable}
+          data-index={index}
+          key={index}
+          className='flex-grow'
+          style={{ backgroundColor: e.hex, width, height }}
+        />
+      );
     },
     [item],
   );
@@ -42,7 +52,12 @@ export default React.memo(function PalettsItem({ item }: Props) {
       <div className='rounded-md overflow-hidden' onClick={handleClick}>
         <div className='flex flex-wrap '>{item.colors.map(drawItems)}</div>
       </div>
-      <div className='text-sm' style={{ color: 'var(--color-pastel-text)' }}>
+      <div
+        data-type={'paletts'}
+        data-removable={item.removable}
+        data-index={index}
+        className='text-sm'
+        style={{ color: 'var(--color-pastel-text)' }}>
         {item.title}
       </div>
     </div>

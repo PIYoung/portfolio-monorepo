@@ -10,6 +10,7 @@ export default function ContextMenuContainer({ children }) {
   const [left, setLeft] = useState<number>(0);
   const [type, setType] = useState<string>('');
   const [menuIndex, setMenuIndex] = useState<number>(0);
+  const [palettsIndex, setPalettsIndex] = useState<number>(0);
 
   const drawContextMenu = useCallback((e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     e.preventDefault();
@@ -22,6 +23,11 @@ export default function ContextMenuContainer({ children }) {
           case 'menu':
             setType(target.dataset.type);
             setMenuIndex(Number(target.dataset.index));
+            break;
+
+          case 'paletts':
+            setType(target.dataset.type);
+            setPalettsIndex(Number(target.dataset.index));
             break;
 
           default:
@@ -43,6 +49,7 @@ export default function ContextMenuContainer({ children }) {
       dispatch(setNavigationMenuRenameIndex(null));
       setShowContextMenu(false);
       setMenuIndex(0);
+      setPalettsIndex(0);
       setType('');
     },
     [dispatch],
@@ -64,6 +71,7 @@ export default function ContextMenuContainer({ children }) {
 
       setShowContextMenu(false);
       setMenuIndex(0);
+      setPalettsIndex(0);
       setType('');
     },
     [menuIndex, type, dispatch],
@@ -86,6 +94,7 @@ export default function ContextMenuContainer({ children }) {
 
       setShowContextMenu(false);
       setMenuIndex(0);
+      setPalettsIndex(0);
       setType('');
     },
     [type, menuIndex, dispatch],
@@ -95,6 +104,7 @@ export default function ContextMenuContainer({ children }) {
     dispatch(setNavigationMenuRenameIndex(null));
     setShowContextMenu(false);
     setMenuIndex(0);
+    setPalettsIndex(0);
     setType('');
   }, [dispatch]);
 
