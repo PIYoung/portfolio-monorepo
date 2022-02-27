@@ -2,94 +2,46 @@ import { createAction, createReducer, current } from '@reduxjs/toolkit';
 
 import { NavigationMenu } from './../interfaces/pastel.interface';
 import update from 'immutability-helper';
+import { initialPastelState } from '../constants/pastel';
 
 const ACTIONS = <const>{
-  SET_PASTEL_HEADER_TITLE: 'Pastel/SET_PASTEL_HEADER_TITLE',
-  SET_SELECTED_PALETTE: 'Pastel/SET_SELECTED_PALETTE',
+  SET_SELECTED_MENU: 'Pastel/SET_SELECTED_MENU',
+  SET_SELECTED_HEX: 'Pastel/SET_SELECTED_HEX',
   ADD_NEW_PASTEL_COLLECTION: 'Pastel/ADD_NEW_PASTEL_COLLECTION',
 };
 
-export const setPastelHeaderTitle = createAction(ACTIONS.SET_PASTEL_HEADER_TITLE, (payload: string) => ({ payload }));
+export const setSelectedMenu = createAction(ACTIONS.SET_SELECTED_MENU, (payload: NavigationMenu) => ({ payload }));
 
-export const setSelectedPalette = createAction(ACTIONS.SET_SELECTED_PALETTE, (payload: string) => ({ payload }));
+export const setSelectedHex = createAction(ACTIONS.SET_SELECTED_HEX, (payload: string) => ({ payload }));
 
 export const addNewPastelCollection = createAction(ACTIONS.ADD_NEW_PASTEL_COLLECTION, (payload: NavigationMenu) => ({
   payload,
 }));
 
 export interface PastelState {
-  headerTitle: string;
-  selectedPalette: string;
+  selectedMenu: NavigationMenu;
+  selectedHex: string;
   menus: NavigationMenu[];
 }
 
-const initialState: PastelState = {
-  headerTitle: 'All Paletts',
-  selectedPalette: '#ffffff',
-  menus: [
-    {
-      iconKey: 0,
-      title: 'Library',
-      removable: false,
-      children: [
-        {
-          iconKey: 1,
-          title: 'All Paletts',
-          to: '/allPaletts',
-          removable: false,
-        },
-        {
-          iconKey: 2,
-          title: 'Recents',
-          to: '/Recents',
-          removable: false,
-        },
-        {
-          iconKey: 3,
-          title: 'Colors',
-          to: '/Colors',
-          removable: false,
-        },
-      ],
-    },
-    {
-      iconKey: 0,
-      title: 'Collections',
-      removable: false,
-      children: [
-        {
-          iconKey: 4,
-          title: 'Themes',
-          to: '/Themes',
-          removable: true,
-        },
-        {
-          iconKey: 4,
-          title: 'Reference',
-          to: '/Reference',
-          removable: true,
-        },
-      ],
-    },
-  ],
-};
+const initialState: PastelState = initialPastelState;
 
 const pastelReducer = createReducer<PastelState>(initialState, builder => {
   builder
-    .addCase(setPastelHeaderTitle, (state, action) => {
+    .addCase(setSelectedMenu, (state, action) => {
       const currState = current(state);
 
       return update(currState, {
-        headerTitle: {
+        selectedMenu: {
           $set: action.payload,
         },
       });
     })
-    .addCase(setSelectedPalette, (state, action) => {
+    .addCase(setSelectedHex, (state, action) => {
       const currState = current(state);
 
       return update(currState, {
-        selectedPalette: {
+        selectedHex: {
           $set: action.payload,
         },
       });

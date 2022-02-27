@@ -22,8 +22,13 @@ export default function PastelNavigation() {
       e.preventDefault();
       e.stopPropagation();
 
+      const collections = menus[1].children;
+      const collectionsLength = collections.length;
+      const lastUid = collections[collectionsLength - 1].uid;
+
       dispatch(
         addNewPastelCollection({
+          uid: lastUid + 1,
           title: 'New Collection',
           iconKey: 4,
           to: '/',
@@ -31,7 +36,7 @@ export default function PastelNavigation() {
         }),
       );
     },
-    [dispatch],
+    [dispatch, menus],
   );
 
   return (

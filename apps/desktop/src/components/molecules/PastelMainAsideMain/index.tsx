@@ -4,19 +4,19 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { BsFillGearFill } from 'react-icons/bs';
 import { RootState } from '../../../reducers';
-import { setSelectedPalette } from '../../../reducers/pastel.reducer';
+import { setSelectedHex } from '../../../reducers/pastel.reducer';
 
 export default function PastelMainAsideMain() {
   const dispatch = useDispatch();
-  const { selectedPalette } = useSelector((state: RootState) => state.pastel);
+  const { selectedHex } = useSelector((state: RootState) => state.pastel);
 
   const setSelectedFFFFFF = useCallback(() => {
-    dispatch(setSelectedPalette('#ffffff'));
+    dispatch(setSelectedHex('#ffffff'));
   }, [dispatch]);
 
   const handleChangeColor = useCallback(
     (color: ColorResult) => {
-      dispatch(setSelectedPalette(color.hex));
+      dispatch(setSelectedHex(color.hex));
     },
     [dispatch],
   );
@@ -26,7 +26,7 @@ export default function PastelMainAsideMain() {
       <div className='m-4'>
         <SketchPicker
           onChange={handleChangeColor}
-          color={selectedPalette}
+          color={selectedHex}
           styles={{
             default: {
               picker: {
@@ -41,9 +41,9 @@ export default function PastelMainAsideMain() {
         style={{ borderColor: 'var(--color-pastel-text-secondary)', backgroundColor: 'var(--color-pastel-header)' }}
         className='flex items-center justify-between border-y p-2'>
         <div className='flex items-center'>
-          <div style={{ backgroundColor: selectedPalette }} className='rounded-sm w-4 h-4 mr-2' />
+          <div style={{ backgroundColor: selectedHex }} className='rounded-sm w-4 h-4 mr-2' />
           <div className='text-sm' style={{ color: 'var(--color-pastel-text)' }}>
-            {selectedPalette}
+            {selectedHex}
           </div>
         </div>
         <div

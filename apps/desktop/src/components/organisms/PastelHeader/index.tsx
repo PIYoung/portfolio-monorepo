@@ -7,7 +7,7 @@ import { RootState } from '../../../reducers';
 import { useSelector } from 'react-redux';
 
 export default function PastelHeader() {
-  const { headerTitle } = useSelector((state: RootState) => state.pastel);
+  const { selectedMenu } = useSelector((state: RootState) => state.pastel);
 
   const addPalette = useCallback(() => {
     console.log('addPalette');
@@ -19,7 +19,7 @@ export default function PastelHeader() {
         <div style={{ color: 'var(--color-pastel-text-secondary)' }} className='mr-2'>
           <BsChevronLeft />
         </div>
-        <div style={{ color: 'var(--color-pastel-text)' }}>{headerTitle}</div>
+        <div style={{ color: 'var(--color-pastel-text)' }}>{selectedMenu.title}</div>
       </div>
       <div style={{ color: 'var(--color-pastel-text)' }} className='flex items-center'>
         <div className='mr-2 cursor-pointer' onClick={addPalette}>
