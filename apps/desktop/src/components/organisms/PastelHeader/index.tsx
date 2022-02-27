@@ -1,17 +1,26 @@
 import * as Styled from './styled';
 
-import { BsArrowRepeat, BsChevronLeft, BsPlus, BsSearch } from 'react-icons/bs';
+import {
+  BsArrowRepeat,
+  BsChevronLeft,
+  BsFillLightbulbFill,
+  BsFillLightbulbOffFill,
+  BsPlus,
+  BsSearch,
+} from 'react-icons/bs';
 import React, { useCallback } from 'react';
 import { addNewColor, addNewPaletts, addPalettsNewColor, setSelectedMenu } from '../../../reducers/pastel.reducer';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { RootState } from '../../../reducers';
+import { setUserConfigurations } from '../../../reducers/user.reducer';
 import { useInput } from '../../../hooks';
 import { useNavigate } from 'react-router-dom';
 
 export default React.memo(function PastelHeader() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { configurations } = useSelector((state: RootState) => state.user);
   const { paletts, currentViewedPaletts, menus, selectedHex, selectedMenu } = useSelector(
     (state: RootState) => state.pastel,
   );
@@ -110,6 +119,17 @@ export default React.memo(function PastelHeader() {
     [dispatch, menus, setSearch],
   );
 
+  const changeColorTheme = useCallback(
+    (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      const theme = configurations.theme === 'light' ? 'dark' : 'light';
+      dispatch(setUserConfigurations({ theme }));
+    },
+    [dispatch, configurations],
+  );
+
   return (
     <Styled.Container className='p-4 flex items-center justify-between'>
       <div className='flex items-center'>
@@ -127,6 +147,9 @@ export default React.memo(function PastelHeader() {
         )}
       </div>
       <div style={{ color: 'var(--color-pastel-text)' }} className='flex items-center'>
+        <div className='mr-2 cursor-pointer hover:bg-slate-500 hover:rounded-md' onClick={changeColorTheme}>
+          {configurations.theme === 'light' ? <BsFillLightbulbFill size={20} /> : <BsFillLightbulbOffFill size={20} />}
+        </div>
         <div className='mr-2 cursor-pointer hover:bg-slate-500 hover:rounded-md' onClick={resetLocalStorage}>
           <BsArrowRepeat size={20} />
         </div>
