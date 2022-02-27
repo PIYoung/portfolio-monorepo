@@ -54,7 +54,7 @@ export const initialPastelState: PastelState = {
           iconKey: 4,
           title: 'Themes',
           to: 'themes',
-          removable: true,
+          removable: false,
         },
         {
           uid: 6,

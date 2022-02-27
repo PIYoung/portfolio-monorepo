@@ -9,6 +9,7 @@ const ACTIONS = <const>{
   SET_SELECTED_HEX: 'Pastel/SET_SELECTED_HEX',
   SET_PALETTS_LAST_VISITED: 'Pastel/SET_PALETTS_LAST_VISITED',
   SET_CURRENT_VIEW_PALETTS: 'Pastel/SET_CURRENT_VIEW_PALETTS',
+  SET_NAVIGATION_MENU_RENAME_INDEX: 'Pastel/SET_NAVIGATION_MENU_RENAME_INDEX',
   UPDATE_NAVIGATION_MENU: 'Pastel/UPDATE_NAVIGATION_MENU',
   DELETE_NAVIGATION_MENU: 'Pastel/DELETE_NAVIGATION_MENU',
   ADD_NEW_PASTEL_COLLECTION: 'Pastel/ADD_NEW_PASTEL_COLLECTION',
@@ -30,9 +31,14 @@ export const setCurrentViewedPalettes = createAction(ACTIONS.SET_CURRENT_VIEW_PA
   payload,
 }));
 
+export const setNavigationMenuRenameIndex = createAction(
+  ACTIONS.SET_NAVIGATION_MENU_RENAME_INDEX,
+  (payload: number) => ({ payload }),
+);
+
 export const updateNavigationMenu = createAction(
   ACTIONS.UPDATE_NAVIGATION_MENU,
-  (payload: { index: number; menu: NavigationMenu }) => ({ payload }),
+  (payload: { index: number; title: string }) => ({ payload }),
 );
 
 export const deleteNavigationMenu = createAction(ACTIONS.DELETE_NAVIGATION_MENU, (payload: number) => ({ payload }));
@@ -57,6 +63,7 @@ export interface PastelState {
   selectedMenu: NavigationMenu;
   selectedHex: string;
   menus: NavigationMenu[];
+  renameMenuIndex?: number;
 }
 
 const initialState: PastelState = initialPastelState;
@@ -104,6 +111,15 @@ const pastelReducer = createReducer<PastelState>(initialState, builder => {
         },
       });
     })
+    .addCase(setNavigationMenuRenameIndex, (state, action) => {
+      const currState = current(state);
+
+      return update(currState, {
+        renameMenuIndex: {
+          $set: action.payload,
+        },
+      });
+    })
     .addCase(updateNavigationMenu, (state, action) => {
       const currState = current(state);
       const index = 1;
@@ -113,7 +129,9 @@ const pastelReducer = createReducer<PastelState>(initialState, builder => {
           [index]: {
             children: {
               [action.payload.index]: {
-                $set: action.payload.menu,
+                title: {
+                  $set: action.payload.title,
+                },
               },
             },
           },
@@ -124,7 +142,13 @@ const pastelReducer = createReducer<PastelState>(initialState, builder => {
       const currState = current(state);
       const index = 1;
 
+      const willBeDeletedMenu = currState.menus[index].children[action.payload];
+      const willBeDeletedPaletts = currState.paletts.filter(e => e.uid === willBeDeletedMenu.uid);
+
       return update(currState, {
+        paletts: {
+          $set: currState.paletts.filter(e => !willBeDeletedPaletts.includes(e)),
+        },
         menus: {
           [index]: {
             children: {

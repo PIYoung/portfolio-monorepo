@@ -14,7 +14,7 @@ export default React.memo(function PastelNavigation() {
   const { menus } = useSelector((state: RootState) => state.pastel);
 
   const drawMenus = useCallback((menu: NavigationMenu, index: number) => {
-    return <PastelNavigationMenu key={index} title={menu.title} childrenMenu={menu.children} />;
+    return <PastelNavigationMenu key={index} pIndex={index} title={menu.title} childrenMenu={menu.children} />;
   }, []);
 
   const addCollection = useCallback(
