@@ -13,6 +13,13 @@ export default function PastelMain() {
 
   const drawMain = useCallback(() => {
     switch (selectedMenu.uid) {
+      case -1:
+        return (
+          <Paletts
+            paletts={paletts.filter(item => item.title.toLowerCase().includes(selectedMenu.title.toLowerCase()))}
+          />
+        );
+
       case 1:
         return <Paletts paletts={paletts} />;
 
