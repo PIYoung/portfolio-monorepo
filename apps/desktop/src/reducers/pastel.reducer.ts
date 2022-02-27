@@ -8,6 +8,7 @@ const ACTIONS = <const>{
   SET_SELECTED_MENU: 'Pastel/SET_SELECTED_MENU',
   SET_SELECTED_HEX: 'Pastel/SET_SELECTED_HEX',
   SET_PALETTS_LAST_VISITED: 'Pastel/SET_PALETTS_LAST_VISITED',
+  SET_CURRENT_VIEW_PALETTS: 'Pastel/SET_CURRENT_VIEW_PALETTS',
   ADD_NEW_PASTEL_COLLECTION: 'Pastel/ADD_NEW_PASTEL_COLLECTION',
   ADD_NEW_COLOR: 'Pastel/ADD_NEW_COLOR',
 };
@@ -21,6 +22,10 @@ export const setPalettsLastVisited = createAction(
   (payload: { date: Date; index: number }) => ({ payload }),
 );
 
+export const setCurrentViewedPalettes = createAction(ACTIONS.SET_CURRENT_VIEW_PALETTS, (payload: number) => ({
+  payload,
+}));
+
 export const addNewPastelCollection = createAction(ACTIONS.ADD_NEW_PASTEL_COLLECTION, (payload: NavigationMenu) => ({
   payload,
 }));
@@ -29,6 +34,7 @@ export const addNewColor = createAction(ACTIONS.ADD_NEW_COLOR, (payload: Color) 
 
 export interface PastelState {
   paletts: Paletts[];
+  currentViewedPaletts?: number;
   colors: Color[];
   selectedMenu: NavigationMenu;
   selectedHex: string;
@@ -68,6 +74,15 @@ const pastelReducer = createReducer<PastelState>(initialState, builder => {
               $set: date,
             },
           },
+        },
+      });
+    })
+    .addCase(setCurrentViewedPalettes, (state, action) => {
+      const currState = current(state);
+
+      return update(currState, {
+        currentViewedPaletts: {
+          $set: action.payload,
         },
       });
     })

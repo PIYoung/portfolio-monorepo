@@ -1,7 +1,7 @@
 import * as Styled from '../Pastel/styled';
 
 import React, { useEffect } from 'react';
-import { setPalettsLastVisited, setSelectedMenu } from '../../reducers/pastel.reducer';
+import { setCurrentViewedPalettes, setPalettsLastVisited, setSelectedMenu } from '../../reducers/pastel.reducer';
 import { useDispatch, useSelector } from 'react-redux';
 
 import PalettsDetailMain from '../../components/organisms/PalettsDetailMain';
@@ -13,12 +13,16 @@ import { useParams } from 'react-router-dom';
 
 export default function PalettsDetail() {
   const dispatch = useDispatch();
-  const { paletts, selectedMenu } = useSelector((state: RootState) => state.pastel);
+  const { paletts, currentViewedPaletts, selectedMenu } = useSelector((state: RootState) => state.pastel);
   const { id } = useParams();
 
   useEffect(() => {
+    if (currentViewedPaletts === Number(id)) return;
+
     for (let i = 0; i < paletts.length; i++) {
       if (paletts[i].id === Number(id)) {
+        dispatch(setCurrentViewedPalettes(paletts[i].id));
+
         dispatch(
           setPalettsLastVisited({
             date: new Date(),
