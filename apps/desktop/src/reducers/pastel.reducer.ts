@@ -9,6 +9,8 @@ const ACTIONS = <const>{
   SET_SELECTED_HEX: 'Pastel/SET_SELECTED_HEX',
   SET_PALETTS_LAST_VISITED: 'Pastel/SET_PALETTS_LAST_VISITED',
   SET_CURRENT_VIEW_PALETTS: 'Pastel/SET_CURRENT_VIEW_PALETTS',
+  UPDATE_NAVIGATION_MENU: 'Pastel/UPDATE_NAVIGATION_MENU',
+  DELETE_NAVIGATION_MENU: 'Pastel/DELETE_NAVIGATION_MENU',
   ADD_NEW_PASTEL_COLLECTION: 'Pastel/ADD_NEW_PASTEL_COLLECTION',
   ADD_NEW_PALLETS: 'Pastel/ADD_NEW_PALLETS',
   ADD_PALLETS_NEW_COLOR: 'Pastel/ADD_PALLETS_NEW_COLOR',
@@ -27,6 +29,13 @@ export const setPalettsLastVisited = createAction(
 export const setCurrentViewedPalettes = createAction(ACTIONS.SET_CURRENT_VIEW_PALETTS, (payload: number) => ({
   payload,
 }));
+
+export const updateNavigationMenu = createAction(
+  ACTIONS.UPDATE_NAVIGATION_MENU,
+  (payload: { index: number; menu: NavigationMenu }) => ({ payload }),
+);
+
+export const deleteNavigationMenu = createAction(ACTIONS.DELETE_NAVIGATION_MENU, (payload: number) => ({ payload }));
 
 export const addNewPastelCollection = createAction(ACTIONS.ADD_NEW_PASTEL_COLLECTION, (payload: NavigationMenu) => ({
   payload,
@@ -92,6 +101,36 @@ const pastelReducer = createReducer<PastelState>(initialState, builder => {
       return update(currState, {
         currentViewedPaletts: {
           $set: action.payload,
+        },
+      });
+    })
+    .addCase(updateNavigationMenu, (state, action) => {
+      const currState = current(state);
+      const index = 1;
+
+      return update(currState, {
+        menus: {
+          [index]: {
+            children: {
+              [action.payload.index]: {
+                $set: action.payload.menu,
+              },
+            },
+          },
+        },
+      });
+    })
+    .addCase(deleteNavigationMenu, (state, action) => {
+      const currState = current(state);
+      const index = 1;
+
+      return update(currState, {
+        menus: {
+          [index]: {
+            children: {
+              $splice: [[action.payload, 1]],
+            },
+          },
         },
       });
     })

@@ -55,9 +55,18 @@ export default React.memo(function PastelNavigationMenu({ title, childrenMenu }:
       }
 
       return (
-        <div key={index} className='ml-2 flex text-xs mb-2 cursor-pointer' onClick={moveTo.bind(null, menu)}>
-          <div className='mr-2'>{Icon}</div>
-          <div>{menu.title}</div>
+        <div
+          data-type={'menu'}
+          data-removable={menu.removable}
+          key={index}
+          className='ml-2 flex text-xs mb-2 cursor-pointer'
+          onClick={moveTo.bind(null, menu)}>
+          <div data-type={'menu'} data-removable={menu.removable} className='mr-2'>
+            {Icon}
+          </div>
+          <div data-type={'menu'} data-removable={menu.removable}>
+            {menu.title}
+          </div>
         </div>
       );
     },

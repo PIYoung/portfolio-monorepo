@@ -5,17 +5,27 @@ export default function ContextMenuContainer({ children }) {
   const [top, setTop] = useState<number>(0);
   const [left, setLeft] = useState<number>(0);
 
-  const drawContextMenu = useCallback(
-    (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-      e.preventDefault();
-      e.stopPropagation();
+  const drawContextMenu = useCallback((e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    e.preventDefault();
+    e.stopPropagation();
 
-      setTop(e.pageY);
-      setLeft(e.pageX);
-      setShowContextMenu(!showContextMenu);
-    },
-    [showContextMenu],
-  );
+    const target = e.target;
+    if (target instanceof HTMLDivElement) {
+      if (target.dataset.removable) {
+        switch (target.dataset.type) {
+          case 'menu':
+            break;
+
+          default:
+            break;
+        }
+
+        setTop(e.pageY);
+        setLeft(e.pageX);
+        setShowContextMenu(true);
+      }
+    }
+  }, []);
 
   const removeContextMenu = useCallback(
     (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
