@@ -13,5 +13,19 @@ export default function Paletts({ paletts }: Props) {
     return <PalettsItem key={index} item={item} />;
   }, []);
 
-  return <div className='flex flex-wrap justify-between'>{paletts.map(drawPalettsItem)}</div>;
+  return (
+    <div className='flex flex-wrap justify-between'>
+      {paletts.map(drawPalettsItem)}
+      <div style={{ width: '200px', visibility: 'hidden' }} />
+      <div style={{ width: '200px', visibility: 'hidden' }} />
+      <div style={{ width: '200px', visibility: 'hidden' }} />
+      <div style={{ width: '200px', visibility: 'hidden' }} />
+      <div style={{ width: '200px', visibility: 'hidden' }} />
+      <div style={{ width: '200px', visibility: 'hidden' }} />
+      <div style={{ width: '200px', visibility: 'hidden' }} />
+      <div style={{ width: '200px', visibility: 'hidden' }} />
+      <div style={{ width: '200px', visibility: 'hidden' }} />
+      <div style={{ width: '200px', visibility: 'hidden' }} />
+    </div>
+  );
 }

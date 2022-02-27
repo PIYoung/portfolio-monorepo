@@ -16,7 +16,7 @@ export default React.memo(function PastelColor({ title, hex }: Props) {
   }, [dispatch, hex]);
 
   return (
-    <div onClick={handleClick} className='mb-12 cursor-pointer ' style={{ width: `${7}vw`, height: `${7}vw` }}>
+    <div onClick={handleClick} className='mb-12 cursor-pointer ' style={{ width: '92px', height: `92px` }}>
       <div className='w-full h-full rounded-md' style={{ backgroundColor: hex }} />
       <div>
         <div className='text-sm' style={{ color: 'var(--color-pastel-text)' }}>

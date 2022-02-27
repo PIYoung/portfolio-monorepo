@@ -19,6 +19,26 @@ export default function Colors({ palettsColors }: Props) {
   return (
     <div className='flex flex-wrap justify-between text-center'>
       {palettsColors ? palettsColors.map(drawColors) : colors.map(drawColors)}
+      <div style={{ width: '92px', visibility: 'hidden' }} />
+      <div style={{ width: '92px', visibility: 'hidden' }} />
+      <div style={{ width: '92px', visibility: 'hidden' }} />
+      <div style={{ width: '92px', visibility: 'hidden' }} />
+      <div style={{ width: '92px', visibility: 'hidden' }} />
+      <div style={{ width: '92px', visibility: 'hidden' }} />
+      <div style={{ width: '92px', visibility: 'hidden' }} />
+      <div style={{ width: '92px', visibility: 'hidden' }} />
+      <div style={{ width: '92px', visibility: 'hidden' }} />
+      <div style={{ width: '92px', visibility: 'hidden' }} />
+      <div style={{ width: '92px', visibility: 'hidden' }} />
+      <div style={{ width: '92px', visibility: 'hidden' }} />
+      <div style={{ width: '92px', visibility: 'hidden' }} />
+      <div style={{ width: '92px', visibility: 'hidden' }} />
+      <div style={{ width: '92px', visibility: 'hidden' }} />
+      <div style={{ width: '92px', visibility: 'hidden' }} />
+      <div style={{ width: '92px', visibility: 'hidden' }} />
+      <div style={{ width: '92px', visibility: 'hidden' }} />
+      <div style={{ width: '92px', visibility: 'hidden' }} />
+      <div style={{ width: '92px', visibility: 'hidden' }} />
     </div>
   );
 }
