@@ -19,7 +19,7 @@ export default function PastelMain() {
       case 2:
         return (
           <Paletts
-            paletts={paletts.filter(e => e.lastVisited).sort((a, b) => (a.lastVisited > b.lastVisited ? 1 : -1))}
+            paletts={paletts.filter(e => e.lastVisited).sort((a, b) => (a.lastVisited < b.lastVisited ? 1 : -1))}
           />
         );
 
