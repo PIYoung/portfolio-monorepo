@@ -81,7 +81,7 @@ export default React.memo(function PastelNavigationMenu({ pIndex, title, childre
           data-removable={menu.removable}
           data-index={index}
           key={index}
-          className='ml-2 flex text-xs mb-2 cursor-pointer'
+          className={`piystel-${menu.to} ml-2 flex text-xs mb-2 cursor-pointer`}
           onClick={moveTo.bind(null, menu)}>
           <div data-type={'menu'} data-removable={menu.removable} data-index={index} className='mr-2'>
             {Icon}

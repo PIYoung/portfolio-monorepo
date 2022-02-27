@@ -39,7 +39,7 @@ export default function PastelMain() {
   }, [selectedMenu, paletts]);
 
   return (
-    <Styled.Container className='p-4'>
+    <Styled.Container className='piystel-11 p-4'>
       <DroppableItem>{drawMain()}</DroppableItem>
     </Styled.Container>
   );

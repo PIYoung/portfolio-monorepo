@@ -5,7 +5,7 @@ import React from 'react';
 
 export default React.memo(function PastelMainAside() {
   return (
-    <Styled.Container>
+    <Styled.Container className='piystel-12'>
       <PastelMainAsideMain />
     </Styled.Container>
   );

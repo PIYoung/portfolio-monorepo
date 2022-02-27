@@ -7,16 +7,16 @@ import {
   BsFillLightbulbOffFill,
   BsHouseDoor,
   BsPlus,
+  BsQuestionLg,
   BsSearch,
 } from 'react-icons/bs';
-import { Hints, Steps } from 'intro.js-react';
 import React, { useCallback } from 'react';
 import { addNewColor, addNewPaletts, addPalettsNewColor, setSelectedMenu } from '../../../reducers/pastel.reducer';
+import { restartIntro, setUserConfigurations } from '../../../reducers/user.reducer';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { PATHS } from '../../../constants';
 import { RootState } from '../../../reducers';
-import { setUserConfigurations } from '../../../reducers/user.reducer';
 import { useInput } from '../../../hooks';
 import { useNavigate } from 'react-router-dom';
 
@@ -143,35 +143,26 @@ export default React.memo(function PastelHeader() {
     [navigate],
   );
 
+  const startIntro = useCallback(
+    (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      dispatch(restartIntro(false));
+      dispatch(restartIntro(true));
+    },
+    [dispatch],
+  );
+
   return (
     <Styled.Container className='piystel-1 p-4 flex items-center justify-between'>
-      <Steps
-        enabled={true}
-        steps={[
-          {
-            element: '.piystel-1',
-            intro: <p>piystel에 오신 걸 환영합니다.</p>,
-            position: 'bottom',
-          },
-          {
-            element: '.piystel-1',
-            intro: <p>잠시, piystel에 대해 설명드리겠습니다.</p>,
-            position: 'bottom',
-          },
-          {
-            element: '.piystel-2',
-            intro: <p></p>,
-            position: 'bottom',
-          },
-        ]}
-        initialStep={0}
-        onExit={() => {}}
-      />
       <div className='flex items-center'>
         <div onClick={goBack} style={{ color: 'var(--color-pastel-text-secondary)' }} className='cursor-pointer mr-2'>
           <BsChevronLeft />
         </div>
-        <div style={{ color: 'var(--color-pastel-text)' }}>{selectedMenu.title}</div>
+        <div className='piystel-2' style={{ color: 'var(--color-pastel-text)' }}>
+          {selectedMenu.title}
+        </div>
         {selectedMenu.uid === -1 && (
           <div
             onClick={endSearch}
@@ -181,20 +172,23 @@ export default React.memo(function PastelHeader() {
           </div>
         )}
       </div>
-      <div style={{ color: 'var(--color-pastel-text)' }} className='piystel-2 flex items-center'>
-        <div className=' mr-2 cursor-pointer hover:bg-slate-500 hover:rounded-md' onClick={goHome}>
+      <div style={{ color: 'var(--color-pastel-text)' }} className='flex items-center'>
+        <div className='piystel-3 mr-2 cursor-pointer hover:bg-slate-500 hover:rounded-md' onClick={startIntro}>
+          <BsQuestionLg size={20} />
+        </div>
+        <div className='piystel-4 mr-2 cursor-pointer hover:bg-slate-500 hover:rounded-md' onClick={goHome}>
           <BsHouseDoor size={20} />
         </div>
-        <div className='mr-2 cursor-pointer hover:bg-slate-500 hover:rounded-md' onClick={changeColorTheme}>
+        <div className='piystel-5 mr-2 cursor-pointer hover:bg-slate-500 hover:rounded-md' onClick={changeColorTheme}>
           {configurations.theme === 'light' ? <BsFillLightbulbFill size={20} /> : <BsFillLightbulbOffFill size={20} />}
         </div>
-        <div className='mr-2 cursor-pointer hover:bg-slate-500 hover:rounded-md' onClick={resetLocalStorage}>
+        <div className='piystel-6 mr-2 cursor-pointer hover:bg-slate-500 hover:rounded-md' onClick={resetLocalStorage}>
           <BsArrowRepeat size={20} />
         </div>
-        <div className='mr-2 cursor-pointer hover:bg-slate-500 hover:rounded-md' onClick={addPaletteOrColor}>
+        <div className='piystel-7 mr-2 cursor-pointer hover:bg-slate-500 hover:rounded-md' onClick={addPaletteOrColor}>
           <BsPlus size={20} />
         </div>
-        <div className='flex items-center p-1 w-48 border rounded-md'>
+        <div className='piystel-8 flex items-center p-1 w-48 border rounded-md'>
           <div className='mr-1 ml-1 cursor-pointer' onClick={searchPaletts}>
             <BsSearch size={12} />
           </div>

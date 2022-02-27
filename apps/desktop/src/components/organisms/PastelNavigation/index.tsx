@@ -40,11 +40,11 @@ export default React.memo(function PastelNavigation() {
   );
 
   return (
-    <Styled.Container className='pt-16 p-4'>
+    <Styled.Container className='piystel-9 pt-16 p-4'>
       {menus.map(drawMenus)}
       <div
         style={{ color: 'var(--color-pastel-text' }}
-        className='text-xs flex leading-3 cursor-pointer absolute bottom-4'
+        className='piystel-10 text-xs flex leading-3 cursor-pointer absolute bottom-4'
         onClick={addCollection}>
         <div className='mr-1'>
           <BsPlusCircle />

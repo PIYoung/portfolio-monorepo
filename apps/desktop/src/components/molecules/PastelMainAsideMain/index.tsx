@@ -24,7 +24,7 @@ export default function PastelMainAsideMain() {
 
   return (
     <div>
-      <div className='m-4'>
+      <div className='piystel-13 m-4'>
         <SketchPicker
           onChange={handleChangeColor}
           color={selectedHex}
@@ -40,10 +40,10 @@ export default function PastelMainAsideMain() {
       </div>
       <div
         style={{ borderColor: 'var(--color-pastel-text-secondary)', backgroundColor: 'var(--color-pastel-header)' }}
-        className='flex items-center justify-between border-y p-2'>
+        className='piystel-14 flex items-center justify-between border-y p-2'>
         <div className='flex items-center'>
           <DraggableItem>
-            <div style={{ backgroundColor: selectedHex }} className='rounded-sm w-4 h-4' />
+            <div style={{ backgroundColor: selectedHex }} className='piystel-15 rounded-sm w-4 h-4' />
           </DraggableItem>
           <div className='text-sm ml-2' style={{ color: 'var(--color-pastel-text)' }}>
             {selectedHex}
@@ -51,7 +51,7 @@ export default function PastelMainAsideMain() {
         </div>
         <div
           onClick={setSelectedFFFFFF}
-          className='cursor-pointer'
+          className='piystel-16 cursor-pointer'
           style={{ color: 'var(--color-pastel-text-secondary)' }}>
           <BsFillGearFill />
         </div>

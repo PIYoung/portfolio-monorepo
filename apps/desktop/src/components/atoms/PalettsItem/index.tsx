@@ -70,7 +70,9 @@ export default React.memo(function PalettsItem({ item }: Props) {
   );
 
   return (
-    <div className='mb-8 cursor-pointer' style={{ width: '200px', height: '100px' }}>
+    <div
+      className={`${item.removable ? 'piystel-paletts' : ''} mb-8 cursor-pointer`}
+      style={{ width: '200px', height: '100px' }}>
       <div className='rounded-md overflow-hidden' onClick={handleClick}>
         <div className='flex flex-wrap '>{item.colors.map(drawItems)}</div>
       </div>
