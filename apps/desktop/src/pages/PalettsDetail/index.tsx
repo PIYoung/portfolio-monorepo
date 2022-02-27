@@ -4,6 +4,7 @@ import React, { useEffect } from 'react';
 import { setCurrentViewedPalettes, setPalettsLastVisited, setSelectedMenu } from '../../reducers/pastel.reducer';
 import { useDispatch, useSelector } from 'react-redux';
 
+import ContextMenuContainer from '../../components/templates/ContextMenuContainer';
 import PalettsDetailMain from '../../components/organisms/PalettsDetailMain';
 import PastelHeader from '../../components/organisms/PastelHeader';
 import PastelMainAside from '../../components/organisms/PastelMainAside';
@@ -44,15 +45,17 @@ export default function PalettsDetail() {
   }, [id, selectedMenu, paletts, currentViewedPaletts, dispatch]);
 
   return (
-    <Styled.FlexContainer>
-      <PastelNavigation />
-      <Styled.Container>
-        <PastelHeader />
-        <Styled.FlexContainer style={{ height: 'calc(100vh - 60px)' }}>
-          <PalettsDetailMain />
-          <PastelMainAside />
-        </Styled.FlexContainer>
-      </Styled.Container>
-    </Styled.FlexContainer>
+    <ContextMenuContainer>
+      <Styled.FlexContainer>
+        <PastelNavigation />
+        <Styled.Container>
+          <PastelHeader />
+          <Styled.FlexContainer style={{ height: 'calc(100vh - 60px)' }}>
+            <PalettsDetailMain />
+            <PastelMainAside />
+          </Styled.FlexContainer>
+        </Styled.Container>
+      </Styled.FlexContainer>
+    </ContextMenuContainer>
   );
 }

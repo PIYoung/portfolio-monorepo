@@ -4,6 +4,7 @@ import React, { useEffect } from 'react';
 import { setCurrentViewedPalettes, setSelectedMenu } from '../../reducers/pastel.reducer';
 import { useDispatch, useSelector } from 'react-redux';
 
+import ContextMenuContainer from '../../components/templates/ContextMenuContainer';
 import PastelHeader from '../../components/organisms/PastelHeader';
 import PastelMain from '../../components/organisms/PastelMain';
 import PastelMainAside from '../../components/organisms/PastelMainAside';
@@ -38,15 +39,17 @@ export default function Pastel() {
   }, [dispatch, menus, selectedMenu]);
 
   return (
-    <Styled.FlexContainer>
-      <PastelNavigation />
-      <Styled.Container>
-        <PastelHeader />
-        <Styled.FlexContainer style={{ height: 'calc(100vh - 60px)' }}>
-          <PastelMain />
-          <PastelMainAside />
-        </Styled.FlexContainer>
-      </Styled.Container>
-    </Styled.FlexContainer>
+    <ContextMenuContainer>
+      <Styled.FlexContainer>
+        <PastelNavigation />
+        <Styled.Container>
+          <PastelHeader />
+          <Styled.FlexContainer style={{ height: 'calc(100vh - 60px)' }}>
+            <PastelMain />
+            <PastelMainAside />
+          </Styled.FlexContainer>
+        </Styled.Container>
+      </Styled.FlexContainer>
+    </ContextMenuContainer>
   );
 }
