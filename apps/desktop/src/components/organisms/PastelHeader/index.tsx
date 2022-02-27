@@ -6,7 +6,7 @@ import React, { useCallback } from 'react';
 import { RootState } from '../../../reducers';
 import { useSelector } from 'react-redux';
 
-export default function PastelHeader() {
+export default React.memo(function PastelHeader() {
   const { selectedMenu } = useSelector((state: RootState) => state.pastel);
 
   const addPalette = useCallback(() => {
@@ -36,4 +36,4 @@ export default function PastelHeader() {
       </div>
     </Styled.Container>
   );
-}
+});

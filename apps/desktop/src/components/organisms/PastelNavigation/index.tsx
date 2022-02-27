@@ -9,7 +9,7 @@ import PastelNavigationMenu from '../../molecules/PastelNavigationMenu';
 import { RootState } from '../../../reducers';
 import { addNewPastelCollection } from '../../../reducers/pastel.reducer';
 
-export default function PastelNavigation() {
+export default React.memo(function PastelNavigation() {
   const { menus } = useSelector((state: RootState) => state.pastel);
   const dispatch = useDispatch();
 
@@ -53,4 +53,4 @@ export default function PastelNavigation() {
       </div>
     </Styled.Container>
   );
-}
+});

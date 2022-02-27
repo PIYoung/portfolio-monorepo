@@ -2,16 +2,19 @@ import { Paletts } from '../interfaces';
 
 export const paletts: Paletts[] = [
   {
+    id: 1,
     uid: 5,
     title: 'Casual',
     colors: [{ hex: '#4f6a8f' }, { hex: '#88a2bc' }, { hex: '#f0dbb0' }, { hex: '#efb680' }, { hex: '#d99477' }],
   },
   {
+    id: 2,
     uid: 5,
     title: 'Sunset',
     colors: [{ hex: '#3e9cbf' }, { hex: '#a7ecf2' }, { hex: '#f2c43d' }, { hex: '#f17c37' }, { hex: '#f26d50' }],
   },
   {
+    id: 3,
     uid: 5,
     title: 'Outrun',
     colors: [
@@ -24,46 +27,55 @@ export const paletts: Paletts[] = [
     ],
   },
   {
+    id: 4,
     uid: 5,
     title: 'Raspberry',
     colors: [{ hex: '#730517' }, { hex: '#f44560' }, { hex: '#44d1df' }, { hex: '#32a4a7' }, { hex: '#1e7069' }],
   },
   {
+    id: 5,
     uid: 5,
     title: 'Pop',
     colors: [{ hex: '#00ff3f' }, { hex: '#35b5ff' }, { hex: '#ff479c' }, { hex: '#fffb38' }],
   },
   {
+    id: 6,
     uid: 5,
     title: 'Cathode',
     colors: [{ hex: '#a8216b' }, { hex: '#f1184c' }, { hex: '#f36943' }, { hex: '#f7dc66' }, { hex: '#2e9599' }],
   },
   {
+    id: 7,
     uid: 5,
     title: 'Bubblegum',
     colors: [{ hex: '#f8cd82' }, { hex: '#f65b74' }, { hex: '#f72078' }, { hex: '#23b0bd' }, { hex: '#0df7db' }],
   },
   {
+    id: 8,
     uid: 5,
     title: 'Night at the Beach',
     colors: [{ hex: '#262335' }, { hex: '#503c52' }, { hex: '#9f6c66' }, { hex: '#d4896a' }, { hex: '#ffbb6c' }],
   },
   {
+    id: 9,
     uid: 5,
     title: 'Spectral',
     colors: [{ hex: '#471337' }, { hex: '#b13254' }, { hex: '#ff5349' }, { hex: '#ff7249' }, { hex: '#ff9248' }],
   },
   {
+    id: 10,
     uid: 5,
     title: 'Patagonia',
     colors: [{ hex: '#202e32' }, { hex: '#85937a' }, { hex: '#586c5c' }, { hex: '#a9af90' }, { hex: '#dfdcb9' }],
   },
   {
+    id: 11,
     uid: 5,
     title: 'Midnight',
     colors: [{ hex: '#010c1e' }, { hex: '#001e38' }, { hex: '#4a6d88' }, { hex: '#c6cdd7' }, { hex: '#d5d9e0' }],
   },
   {
+    id: 12,
     uid: 5,
     title: 'Newsstand',
     colors: [
@@ -76,11 +88,13 @@ export const paletts: Paletts[] = [
     ],
   },
   {
+    id: 13,
     uid: 5,
     title: 'Springfield',
     colors: [{ hex: '#89d1dc' }, { hex: '#f89cfa' }, { hex: '#c386f1' }, { hex: '#f0d689' }, { hex: '#aff28b' }],
   },
   {
+    id: 14,
     uid: 6,
     title: 'CGA',
     colors: [
@@ -103,11 +117,13 @@ export const paletts: Paletts[] = [
     ],
   },
   {
+    id: 15,
     uid: 6,
     title: 'LCD',
     colors: [{ hex: '#0f370e' }, { hex: '#30622f' }, { hex: '#8bad0d' }, { hex: '#9bbc0e' }],
   },
   {
+    id: 16,
     uid: 6,
     title: 'PICO-8',
     colors: [

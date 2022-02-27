@@ -15,6 +15,7 @@ export interface Color {
 }
 
 export interface Paletts {
+  id: number;
   title: string;
   uid: number;
   colors: Omit<Color, 'title'>[];
