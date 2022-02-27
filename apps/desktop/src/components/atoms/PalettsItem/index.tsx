@@ -6,21 +6,37 @@ interface Props {
 }
 
 export default function PalettsItem({ item }: Props) {
-  const handleClick = useCallback((e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    e.preventDefault();
-    e.stopPropagation();
+  const handleClick = useCallback(
+    (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+      e.preventDefault();
+      e.stopPropagation();
 
-    console.log('hi');
-  }, []);
+      console.log(item);
+    },
+    [item],
+  );
 
-  const drawItems = useCallback((item: Omit<Color, 'title'>, index: number) => {
-    return <div className={`w-10 h-24`} key={index} style={{ backgroundColor: item.hex }} />;
-  }, []);
+  const drawItems = useCallback(
+    (e: Omit<Color, 'title'>, index: number) => {
+      const lines = item.colors.length / 8;
+      let width: string, height: string;
+      if (lines > 1) {
+        width = `${200 / 8}px`;
+        height = `${60 / lines}px`;
+      } else {
+        width = `${200 / item.colors.length}px`;
+        height = '60px';
+      }
+
+      return <div key={index} className='flex-grow' style={{ backgroundColor: e.hex, width, height }} />;
+    },
+    [item],
+  );
 
   return (
-    <div>
+    <div className='mb-8' style={{ width: '200px', height: '100px' }}>
       <div className='rounded-md overflow-hidden' onClick={handleClick}>
-        <div className='flex flex-wrap'>{item.colors.map(drawItems)}</div>
+        <div className='flex flex-wrap '>{item.colors.map(drawItems)}</div>
       </div>
       <div className='text-sm' style={{ color: 'var(--color-pastel-text)' }}>
         {item.title}

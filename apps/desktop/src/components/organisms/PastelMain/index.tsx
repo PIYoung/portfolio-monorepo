@@ -29,8 +29,6 @@ export default function PastelMain() {
       default:
         return <Paletts paletts={paletts.filter(e => e.uid === selectedMenu.uid)} />;
     }
-
-    return <div>This should not happen</div>;
   }, [selectedMenu, paletts]);
 
   return (

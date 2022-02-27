@@ -13,9 +13,5 @@ export default function Paletts({ paletts }: Props) {
     return <PalettsItem key={index} item={item} />;
   }, []);
 
-  return (
-    <div className='flex flex-wrap justify-between items-center' style={{ height: '100%' }}>
-      {paletts.map(drawPalettsItem)}
-    </div>
-  );
+  return <div className='flex flex-wrap justify-between'>{paletts.map(drawPalettsItem)}</div>;
 }
