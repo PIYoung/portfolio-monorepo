@@ -42,13 +42,17 @@ export default React.memo(function PastelHeader() {
     [selectedMenu, navigate],
   );
 
-  const resetLocalStorage = useCallback((e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    e.preventDefault();
-    e.stopPropagation();
+  const resetLocalStorage = useCallback(
+    (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+      e.preventDefault();
+      e.stopPropagation();
 
-    localStorage.clear();
-    window.location.reload();
-  }, []);
+      localStorage.clear();
+      navigate(`/${PATHS.PASTEL}`);
+      window.location.reload();
+    },
+    [navigate],
+  );
 
   const addPaletteOrColor = useCallback(() => {
     if (selectedMenu.isDetail && currentViewedPaletts) {

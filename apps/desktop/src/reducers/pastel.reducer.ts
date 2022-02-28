@@ -30,7 +30,7 @@ export const setSelectedHex = createAction(ACTIONS.SET_SELECTED_HEX, (payload: s
 
 export const setPalettsLastVisited = createAction(
   ACTIONS.SET_PALETTS_LAST_VISITED,
-  (payload: { date: Date; index: number }) => ({ payload }),
+  (payload: { date: Date; id: number }) => ({ payload }),
 );
 
 export const setCurrentViewedPalettes = createAction(ACTIONS.SET_CURRENT_VIEW_PALETTS, (payload: number) => ({
@@ -114,7 +114,8 @@ const pastelReducer = createReducer<PastelState>(initialState, builder => {
     })
     .addCase(setPalettsLastVisited, (state, action) => {
       const currState = current(state);
-      const { date, index } = action.payload;
+      const { date, id } = action.payload;
+      const index = currState.paletts.findIndex(e => e.id === id);
 
       return update(currState, {
         paletts: {

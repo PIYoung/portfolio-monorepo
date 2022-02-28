@@ -18,29 +18,23 @@ export default function PalettsDetail() {
   const { id } = useParams();
 
   useEffect(() => {
-    if (currentViewedPaletts === Number(id)) return;
+    if (currentViewedPaletts !== Number(id)) {
+      dispatch(setCurrentViewedPalettes(Number(id)));
 
-    for (let i = 0; i < paletts.length; i++) {
-      if (paletts[i].id === Number(id)) {
-        dispatch(setCurrentViewedPalettes(paletts[i].id));
+      dispatch(
+        setPalettsLastVisited({
+          date: new Date(),
+          id: Number(id),
+        }),
+      );
 
-        dispatch(
-          setPalettsLastVisited({
-            date: new Date(),
-            index: i,
-          }),
-        );
-
-        dispatch(
-          setSelectedMenu({
-            ...selectedMenu,
-            title: paletts[i].title,
-            isDetail: true,
-          }),
-        );
-
-        break;
-      }
+      dispatch(
+        setSelectedMenu({
+          ...selectedMenu,
+          title: paletts.find(e => e.id === Number(id)).title,
+          isDetail: true,
+        }),
+      );
     }
   }, [id, selectedMenu, paletts, currentViewedPaletts, dispatch]);
 
