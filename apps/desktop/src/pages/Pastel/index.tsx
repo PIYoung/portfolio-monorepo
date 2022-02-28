@@ -68,7 +68,7 @@ export default function Pastel() {
         enabled={configurations.showIntro}
         steps={[
           {
-            element: '.piystel-1',
+            element: '.piystel-15',
             intro: (
               <div style={{ width: '260px' }}>
                 <p>
@@ -80,10 +80,10 @@ export default function Pastel() {
                 </p>
               </div>
             ),
-            position: 'bottom',
+            position: 'left',
           },
           {
-            element: '.piystel-1',
+            element: '.piystel-15',
             intro: (
               <div style={{ width: '260px' }}>
                 <p>
@@ -91,10 +91,10 @@ export default function Pastel() {
                 </p>
               </div>
             ),
-            position: 'bottom',
+            position: 'left',
           },
           {
-            element: '.piystel-1',
+            element: '.piystel-15',
             intro: (
               <div style={{ width: '260px' }}>
                 <p>
@@ -102,7 +102,7 @@ export default function Pastel() {
                 </p>
               </div>
             ),
-            position: 'bottom',
+            position: 'left',
           },
           {
             element: '.piystel-2',
@@ -255,7 +255,7 @@ export default function Pastel() {
             element: '.piystel-14',
             intro: (
               <div style={{ width: '260px' }}>
-                <p>내가 선택한 색상을 나타냅니다.</p>
+                <p>현재 선택된 색상을 표시합니다.</p>
               </div>
             ),
             position: 'left',
@@ -264,21 +264,22 @@ export default function Pastel() {
             element: '.piystel-15',
             intro: (
               <div style={{ width: '260px' }}>
-                <p>Main 영역으로 저를 드래그 앤 드랍 해주세요!</p>
+                <p>저를 가운데 영역에 드래그 앤 드랍 해주세요!</p>
               </div>
             ),
-            position: 'bottom',
+            position: 'left',
           },
           {
             element: '.piystel-16',
             intro: (
               <div style={{ width: '260px' }}>
-                <p>내가 선택한 색상을 초기색(#ffffff)으로 바로 변경합니다.</p>
+                <p>현재 색상을 되돌립니다.</p>
               </div>
             ),
             position: 'bottom',
           },
           {
+            element: '.piystel-15',
             intro: (
               <div style={{ width: '260px' }}>
                 <p>
@@ -292,6 +293,7 @@ export default function Pastel() {
                 <p>감사합니다.</p>
               </div>
             ),
+            position: 'left',
           },
         ]}
         initialStep={0}
