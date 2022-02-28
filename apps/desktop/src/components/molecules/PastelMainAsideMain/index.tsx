@@ -14,8 +14,8 @@ export default function PastelMainAsideMain() {
   const { selectedHex } = useSelector((state: RootState) => state.pastel);
   const { hexEvent } = useSelector((state: RootState) => state.user.configurations);
 
-  const setSelectedFFFFFF = useCallback(() => {
-    dispatch(setSelectedHex('#ffffff'));
+  const setSelectedHexDefault = useCallback(() => {
+    dispatch(setSelectedHex('#c585c5'));
   }, [dispatch]);
 
   const handleChangeColor = useCallback(
@@ -66,7 +66,7 @@ export default function PastelMainAsideMain() {
           </div>
         </div>
         <div
-          onClick={setSelectedFFFFFF}
+          onClick={setSelectedHexDefault}
           className='piystel-16 cursor-pointer'
           style={{ color: 'var(--color-pastel-text-secondary)' }}>
           <BsFillGearFill />

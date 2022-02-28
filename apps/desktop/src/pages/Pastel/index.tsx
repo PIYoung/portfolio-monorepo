@@ -65,6 +65,11 @@ export default function Pastel() {
         </Styled.FlexContainer>
       </ContextMenuContainer>
       <Steps
+        options={{
+          nextLabel: '다음',
+          prevLabel: '이전',
+          skipLabel: '건너뛰기',
+        }}
         enabled={configurations.showIntro}
         steps={[
           {
@@ -76,7 +81,11 @@ export default function Pastel() {
                 </p>
                 <br />
                 <p>
-                  저는 <b>piystel</b>을 좀 더 쉽게 사용할 수 있게 도와주는 <b>piystel</b> Helper입니다.
+                  저는 <b>piystel</b>을 좀 더 쉽게 사용할 수 있게 도와주는{' '}
+                  <b>
+                    <span style={{ color: '#c585c5' }}>HEX</span>
+                  </b>
+                  입니다.
                 </p>
               </div>
             ),
@@ -117,7 +126,9 @@ export default function Pastel() {
             element: '.piystel-3',
             intro: (
               <div style={{ width: '260px' }}>
-                <p>인트로를 다시 재생합니다.</p>
+                <p>설명을 처음부터 시작합니다.</p>
+                <br />
+                <p>모르고 지나친게 있으면 눌러주세요.</p>
               </div>
             ),
             position: 'bottom',
@@ -283,7 +294,11 @@ export default function Pastel() {
             intro: (
               <div style={{ width: '260px' }}>
                 <p>
-                  지금까지 <b>piystel</b> Helper 였습니다.
+                  지금까지{' '}
+                  <b>
+                    <span style={{ color: '#c585c5' }}>HEX</span>
+                  </b>
+                  였습니다.
                 </p>
                 <br />
                 <p>
