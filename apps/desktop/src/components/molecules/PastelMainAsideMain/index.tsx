@@ -4,13 +4,15 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { BsFillGearFill } from 'react-icons/bs';
 import DraggableItem from '../../templates/DraggableItem';
+import { HexEvent } from '../../../interfaces';
 import { RootState } from '../../../reducers';
+import { setHexEvent } from '../../../reducers/user.reducer';
 import { setSelectedHex } from '../../../reducers/pastel.reducer';
 
 export default function PastelMainAsideMain() {
   const dispatch = useDispatch();
   const { selectedHex } = useSelector((state: RootState) => state.pastel);
-  const [hexEvent, setHexEvent] = useState<'ping' | 'spin' | 'bounce' | 'pulse' | ''>('bounce');
+  const { hexEvent } = useSelector((state: RootState) => state.user.configurations);
 
   const setSelectedFFFFFF = useCallback(() => {
     dispatch(setSelectedHex('#ffffff'));
@@ -23,12 +25,15 @@ export default function PastelMainAsideMain() {
     [dispatch],
   );
 
-  const handleRadio = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    const target = e.target;
-    if ('value' in target) {
-      setHexEvent(target.value as 'ping' | 'spin' | 'bounce' | 'pulse' | '');
-    }
-  }, []);
+  const handleRadio = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      const target = e.target;
+      if ('value' in target) {
+        dispatch(setHexEvent(target.value as HexEvent));
+      }
+    },
+    [dispatch],
+  );
 
   return (
     <div>

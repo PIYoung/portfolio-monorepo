@@ -12,7 +12,7 @@ import {
 } from 'react-icons/bs';
 import React, { useCallback, useState } from 'react';
 import { addNewColor, addNewPaletts, addPalettsNewColor, setSelectedMenu } from '../../../reducers/pastel.reducer';
-import { restartIntro, setUserConfigurations } from '../../../reducers/user.reducer';
+import { restartIntro, setTheme } from '../../../reducers/user.reducer';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { PATHS } from '../../../constants';
@@ -141,7 +141,7 @@ export default React.memo(function PastelHeader() {
       e.stopPropagation();
 
       const theme = configurations.theme === 'light' ? 'dark' : 'light';
-      dispatch(setUserConfigurations(theme));
+      dispatch(setTheme(theme));
     },
     [dispatch, configurations],
   );

@@ -5,7 +5,7 @@ import React, { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { RootState } from '../../../reducers';
-import { setUserConfigurations } from '../../../reducers/user.reducer';
+import { setTheme } from '../../../reducers/user.reducer';
 
 export default function ColorTheme() {
   const dispatch = useDispatch();
@@ -17,7 +17,7 @@ export default function ColorTheme() {
       e.stopPropagation();
 
       const theme = configurations.theme === 'light' ? 'dark' : 'light';
-      dispatch(setUserConfigurations(theme));
+      dispatch(setTheme(theme));
     },
     [dispatch, configurations],
   );
