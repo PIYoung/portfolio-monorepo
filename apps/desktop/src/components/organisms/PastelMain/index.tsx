@@ -24,9 +24,12 @@ export default function PastelMain() {
         return <Paletts paletts={paletts} />;
 
       case 2:
+        console.log(paletts);
         return (
           <Paletts
-            paletts={paletts.filter(e => e.lastVisited).sort((a, b) => (a.lastVisited < b.lastVisited ? 1 : -1))}
+            paletts={paletts
+              .filter(e => e.lastVisited)
+              .sort((a, b) => (new Date(a.lastVisited) < new Date(b.lastVisited) ? 1 : -1))}
           />
         );
 
