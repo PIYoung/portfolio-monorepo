@@ -21,7 +21,7 @@ export default function DroppableItem({ children }: Props) {
           return dispatch(
             addPalettsNewColor({
               color: { hex: selectedHex, removable: true },
-              index: currentViewedPaletts - 1,
+              id: currentViewedPaletts,
             }),
           );
         }

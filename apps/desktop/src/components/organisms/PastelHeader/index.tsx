@@ -58,7 +58,7 @@ export default React.memo(function PastelHeader() {
     if (selectedMenu.isDetail && currentViewedPaletts) {
       dispatch(
         addPalettsNewColor({
-          index: currentViewedPaletts - 1,
+          id: currentViewedPaletts,
           color: {
             hex: selectedHex,
             removable: true,

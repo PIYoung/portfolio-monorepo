@@ -32,7 +32,12 @@ export default function Pastel() {
           const child = menu.children[j];
 
           if (child.uid === selectedMenu.uid) {
-            dispatch(setSelectedMenu(child));
+            dispatch(
+              setSelectedMenu({
+                ...child,
+                isDetail: false,
+              }),
+            );
             dispatch(setCurrentViewedPalettes(null));
             hasDone = true;
 

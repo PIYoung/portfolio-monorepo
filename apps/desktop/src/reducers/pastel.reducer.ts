@@ -73,7 +73,7 @@ export const addNewPaletts = createAction(ACTIONS.ADD_NEW_PALLETS, (payload: Pal
 
 export const addPalettsNewColor = createAction(
   ACTIONS.ADD_PALLETS_NEW_COLOR,
-  (payload: { color: Omit<Color, 'title'>; index: number }) => ({ payload }),
+  (payload: { color: Omit<Color, 'title'>; id: number }) => ({ payload }),
 );
 
 export const addNewColor = createAction(ACTIONS.ADD_NEW_COLOR, (payload: Color) => ({ payload }));
@@ -272,7 +272,8 @@ const pastelReducer = createReducer<PastelState>(initialState, builder => {
     })
     .addCase(addPalettsNewColor, (state, action) => {
       const currState = current(state);
-      const { color, index } = action.payload;
+      const { color, id } = action.payload;
+      const index = currState.paletts.findIndex(e => e.id === id);
 
       return update(currState, {
         paletts: {
