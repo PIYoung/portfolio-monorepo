@@ -1,4 +1,4 @@
-# PIYoung (https://github.com/PIYoung)
+# PIYoung (<https://github.com/PIYoung>)
 
 ## Description
 
@@ -6,10 +6,17 @@
 
 ## Portfolio Desktop(ReactJS)
 
-```bash
-  # Node Version 16.13.1
-  nvm use 16.13.1
+- Project: Piystel
+- Author: PIYoung
+- Period: 2022. 02. 26 ~ 2022. 02. 28.
+- Node: v16.13.1
+- ReactJS: v17.0.2
+- DevTool: VSCode
+- Test OS: MacOS Monterey 12.2.1(m1)
+- Test Browser: Google Chrome v98.0.4758.109(arm64), Safari v15.3(17612.4.9.1.8)
+- Reference: <https://www.highcaffeinecontent.com/blog/20200610-Pastel>
 
+```bash
   # Run React App
   yarn
   yarn desktop start
