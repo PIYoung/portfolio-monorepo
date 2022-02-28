@@ -1,6 +1,6 @@
 import * as Styled from './styled';
 
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback, useLayoutEffect } from 'react';
 import { setCurrentViewedPalettes, setSelectedMenu } from '../../reducers/pastel.reducer';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -22,7 +22,7 @@ export default function Pastel() {
     dispatch(restartIntro(false));
   }, [dispatch]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (selectedMenu.isDetail) {
       let hasDone = false;
       for (let i = 0; i < menus.length; i++) {

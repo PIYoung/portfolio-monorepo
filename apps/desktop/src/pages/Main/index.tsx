@@ -1,6 +1,6 @@
 import * as Styled from './styled';
 
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback, useLayoutEffect } from 'react';
 
 import ColorTheme from '../../components/molecules/ColorTheme';
 import { PATHS } from '../../constants';
@@ -19,7 +19,7 @@ const Main = () => {
     [navigate],
   );
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const isEnvThreeJS = process.env.REACT_APP_THREE_JS === 'true';
 
     if (isEnvThreeJS) {

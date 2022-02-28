@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useLayoutEffect, useState } from 'react';
 import {
   deleteColor,
   deleteNavigationMenu,
@@ -133,7 +133,7 @@ export default function ContextMenuContainer({ children }) {
     [menuIndex, palettsIndex, colorIndex, type, dispatch],
   );
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     dispatch(setNavigationMenuRenameIndex(null));
     dispatch(setPalettsRenameIndex(null));
     dispatch(setColorRenameIndex(null));

@@ -1,6 +1,6 @@
 import * as Styled from '../PastelMain/styled';
 
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback, useLayoutEffect } from 'react';
 import { setCurrentViewedPalettes, setPalettsLastVisited, setSelectedMenu } from '../../../reducers/pastel.reducer';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -15,14 +15,13 @@ export default function PalettsDetailMain() {
   const { id } = useParams();
 
   const drawMain = useCallback(() => {
-    if (!currentViewedPaletts) return;
-
+    if (currentViewedPaletts !== Number(id)) return;
     const _paletts = paletts.find(e => e.id === currentViewedPaletts);
-
+    if (!_paletts.colors) throw new Error('No colors');
     return <PastelColors palettsColors={_paletts.colors} />;
-  }, [paletts, currentViewedPaletts]);
+  }, [id, paletts, currentViewedPaletts]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (currentViewedPaletts !== Number(id)) {
       dispatch(setCurrentViewedPalettes(Number(id)));
 
