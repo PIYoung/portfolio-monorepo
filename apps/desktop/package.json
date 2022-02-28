@@ -12,7 +12,6 @@
     "pretty": "prettier --write \"./**/*.{js,jsx,json,ts,tsx}\""
   },
   "dependencies": {
-    "@loadable/component": "^5.15.2",
     "@reduxjs/toolkit": "^1.7.2",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
@@ -44,7 +43,6 @@
     "@types/dat.gui": "^0.7.7",
     "@types/intro.js": "^3.0.2",
     "@types/jest": "^27.4.0",
-    "@types/loadable__component": "^5.13.4",
     "@types/node": "^16.11.18",
     "@types/react": "^17.0.38",
     "@types/react-color": "^3.0.6",
