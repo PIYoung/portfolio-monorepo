@@ -68,7 +68,7 @@ export default function PastelMainAsideMain() {
         </div>
       </div>
       <div className='m-3 text-sm' style={{ color: 'var(--color-text)' }}>
-        <div className='mb-2'>
+        <div className='mb-2' style={{ width: '220px' }}>
           <input
             id='hex-event-none'
             name='hex-event'
@@ -77,11 +77,11 @@ export default function PastelMainAsideMain() {
             value=''
             onChange={handleRadio}
           />
-          <label htmlFor='hex-event-none' className='ml-1'>
+          <label htmlFor='hex-event-none' className='ml-1 inline-block' style={{ width: '200px' }}>
             none
           </label>
         </div>
-        <div className='mb-2'>
+        <div className='mb-2' style={{ width: '220px' }}>
           <input
             id='hex-event-ping'
             name='hex-event'
@@ -90,11 +90,11 @@ export default function PastelMainAsideMain() {
             value='ping'
             onChange={handleRadio}
           />
-          <label htmlFor='hex-event-ping' className='ml-1'>
-            Ping
+          <label htmlFor='hex-event-ping' className='ml-1 inline-block' style={{ width: '200px' }}>
+            ping
           </label>
         </div>
-        <div className='mb-2'>
+        <div className='mb-2' style={{ width: '220px' }}>
           <input
             id='hex-event-bounce'
             name='hex-event'
@@ -103,11 +103,11 @@ export default function PastelMainAsideMain() {
             value='bounce'
             onChange={handleRadio}
           />
-          <label htmlFor='hex-event-bounce' className='ml-1'>
-            Bounce
+          <label htmlFor='hex-event-bounce' className='ml-1 inline-block' style={{ width: '200px' }}>
+            bounce
           </label>
         </div>
-        <div className='mb-2'>
+        <div className='mb-2' style={{ width: '220px' }}>
           <input
             id='hex-event-spin'
             name='hex-event'
@@ -116,11 +116,11 @@ export default function PastelMainAsideMain() {
             value='spin'
             onChange={handleRadio}
           />
-          <label htmlFor='hex-event-spin' className='ml-1'>
-            Spin
+          <label htmlFor='hex-event-spin' className='ml-1 inline-block' style={{ width: '200px' }}>
+            spin
           </label>
         </div>
-        <div className='mb-2'>
+        <div className='mb-2' style={{ width: '220px' }}>
           <input
             id='hex-event-pulse'
             name='hex-event'
@@ -129,8 +129,8 @@ export default function PastelMainAsideMain() {
             value='pulse'
             onChange={handleRadio}
           />
-          <label htmlFor='hex-event-pulse' className='ml-1'>
-            Pulse
+          <label htmlFor='hex-event-pulse' className='ml-1 inline-block' style={{ width: '200px' }}>
+            pulse
           </label>
         </div>
       </div>
