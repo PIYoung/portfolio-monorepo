@@ -27,7 +27,7 @@ export default React.memo(function PastelNavigationMenu({ pIndex, title, childre
       e.stopPropagation();
 
       dispatch(setSelectedMenu(menu));
-      navigate(`/${PATHS.PASTEL}`);
+      navigate(PATHS.PASTEL);
     },
     [navigate, dispatch],
   );

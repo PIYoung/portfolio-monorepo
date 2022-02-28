@@ -48,7 +48,7 @@ export default React.memo(function PastelHeader() {
       e.stopPropagation();
 
       localStorage.clear();
-      navigate(`/${PATHS.PASTEL}`);
+      navigate(PATHS.PASTEL);
       window.location.reload();
     },
     [navigate],
@@ -101,6 +101,7 @@ export default React.memo(function PastelHeader() {
               removable: false,
             }),
           );
+          navigate(PATHS.PASTEL);
         }
       } else {
         e.preventDefault();
@@ -116,9 +117,10 @@ export default React.memo(function PastelHeader() {
             removable: false,
           }),
         );
+        navigate(PATHS.PASTEL);
       }
     },
-    [search, dispatch],
+    [search, navigate, dispatch],
   );
 
   const endSearch = useCallback(
