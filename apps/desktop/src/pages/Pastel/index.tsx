@@ -100,15 +100,6 @@ export default function Pastel() {
             position: 'bottom',
           },
           {
-            element: '.piystel-1',
-            intro: (
-              <div style={{ width: '260px' }}>
-                <p>먼저, Header 영역부터 알아보겠습니다.</p>
-              </div>
-            ),
-            position: 'bottom',
-          },
-          {
             element: '.piystel-2',
             intro: (
               <div style={{ width: '260px' }}>
@@ -148,7 +139,7 @@ export default function Pastel() {
             element: '.piystel-6',
             intro: (
               <div style={{ width: '260px' }}>
-                <p>지금까지 수행한 모든 것들을 초기화합니다.</p>
+                <p>모든 데이터를 초기화합니다.</p>
               </div>
             ),
             position: 'bottom',
@@ -157,7 +148,7 @@ export default function Pastel() {
             element: '.piystel-7',
             intro: (
               <div style={{ width: '260px' }}>
-                <p>새로운 파레트 혹은 색상을 추가합니다.</p>
+                <p>새로운 팔레트 혹은 색상을 추가합니다.</p>
               </div>
             ),
             position: 'bottom',
@@ -166,25 +157,16 @@ export default function Pastel() {
             element: '.piystel-8',
             intro: (
               <div style={{ width: '260px' }}>
-                <p>등록된 파레트를 검색합니다.</p>
+                <p>등록된 팔레트를 검색합니다.</p>
               </div>
             ),
             position: 'bottom',
           },
           {
-            element: '.piystel-9',
-            intro: (
-              <div style={{ width: '260px' }}>
-                <p>Navigation 영역입니다.</p>
-              </div>
-            ),
-            position: 'right',
-          },
-          {
             element: '.piystel-all-paletts',
             intro: (
               <div style={{ width: '260px' }}>
-                <p>모든 파레트 목록입니다.</p>
+                <p>모든 팔레트 목록입니다.</p>
               </div>
             ),
             position: 'right',
@@ -193,7 +175,7 @@ export default function Pastel() {
             element: '.piystel-recents',
             intro: (
               <div style={{ width: '260px' }}>
-                <p>최근 조회한 파레트 목록입니다.</p>
+                <p>최근 조회한 팔레트 목록입니다.</p>
               </div>
             ),
             position: 'right',
@@ -202,7 +184,9 @@ export default function Pastel() {
             element: '.piystel-colors',
             intro: (
               <div style={{ width: '260px' }}>
-                <p>예제 색상을 조회합니다.</p>
+                <p>샘플 색상 목록입니다.</p>
+                <br />
+                <p>색상 추가/삭제 이름 변경 가능합니다.</p>
               </div>
             ),
             position: 'right',
@@ -211,7 +195,9 @@ export default function Pastel() {
             element: '.piystel-themes',
             intro: (
               <div style={{ width: '260px' }}>
-                <p>예제 파레트(Themes)입니다.</p>
+                <p>샘플 팔레트(Themes)입니다.</p>
+                <br />
+                <p>삭제/변경할 수 없습니다.</p>
               </div>
             ),
             position: 'right',
@@ -220,7 +206,9 @@ export default function Pastel() {
             element: '.piystel-reference',
             intro: (
               <div style={{ width: '260px' }}>
-                <p>예제 파레트(Reference)입니다.</p>
+                <p>샘플 팔레트(Reference)입니다.</p>
+                <br />
+                <p>삭제/변경할 수 있습니다.</p>
               </div>
             ),
             position: 'right',
@@ -231,18 +219,7 @@ export default function Pastel() {
               <div style={{ width: '260px' }}>
                 <p>새로운 컬렉션을 등록합니다.</p>
                 <br />
-                <p>새로운 컬렉션은 마우스 오른쪽을 눌러 이름을 변경하거나 삭제할 수 있습니다.</p>
-              </div>
-            ),
-            position: 'right',
-          },
-          {
-            element: '.piystel-11',
-            intro: (
-              <div style={{ width: '260px' }}>
-                <p>Main 영역입니다.</p>
-                <br />
-                <p>색상 혹은 파레트 목록을 표시합니다.</p>
+                <p>새로운 컬렉션은 마우스 오른쪽 버튼을 눌러서 이름을 변경하거나 삭제할 수 있습니다.</p>
               </div>
             ),
             position: 'right',
@@ -251,20 +228,11 @@ export default function Pastel() {
             element: '.piystel-paletts',
             intro: (
               <div style={{ width: '260px' }}>
-                <p>파레트입니다.</p>
+                <p>팔레트입니다.</p>
                 <br />
                 <p>마우스 오른쪽을 눌러 이름을 변경하거나 삭제할 수 있습니다.</p>
                 <br />
-                <p>어떤 파레트는 변경하거나 삭제할 수 없습니다.</p>
-              </div>
-            ),
-            position: 'bottom',
-          },
-          {
-            element: '.piystel-12',
-            intro: (
-              <div style={{ width: '260px' }}>
-                <p>aside 영역입니다.</p>
+                <p>어떤 팔레트는 변경하거나 삭제할 수 없습니다.</p>
               </div>
             ),
             position: 'bottom',
@@ -276,7 +244,7 @@ export default function Pastel() {
                 <p>색상 선택화면입니다.</p>
               </div>
             ),
-            position: 'bottom',
+            position: 'left',
           },
           {
             element: '.piystel-14',
@@ -285,7 +253,7 @@ export default function Pastel() {
                 <p>내가 선택한 색상을 나타냅니다.</p>
               </div>
             ),
-            position: 'bottom',
+            position: 'left',
           },
           {
             element: '.piystel-15',
