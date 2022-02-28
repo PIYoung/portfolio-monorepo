@@ -68,6 +68,7 @@ export default function Pastel() {
         options={{
           nextLabel: '다음',
           prevLabel: '이전',
+          doneLabel: '완료',
           skipLabel: '건너뛰기',
         }}
         enabled={configurations.showIntro}
