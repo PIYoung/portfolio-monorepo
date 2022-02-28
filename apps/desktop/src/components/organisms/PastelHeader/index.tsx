@@ -10,7 +10,7 @@ import {
   BsQuestionLg,
   BsSearch,
 } from 'react-icons/bs';
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import { addNewColor, addNewPaletts, addPalettsNewColor, setSelectedMenu } from '../../../reducers/pastel.reducer';
 import { restartIntro, setUserConfigurations } from '../../../reducers/user.reducer';
 import { useDispatch, useSelector } from 'react-redux';
@@ -28,6 +28,7 @@ export default React.memo(function PastelHeader() {
     (state: RootState) => state.pastel,
   );
   const [search, changeSearch, setSearch] = useInput<string>('');
+  const [searchError, setSearchError] = useState<boolean>(false);
 
   const goBack = useCallback(
     (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
@@ -83,8 +84,11 @@ export default React.memo(function PastelHeader() {
 
   const searchPaletts = useCallback(
     (e: React.KeyboardEvent<HTMLInputElement> | React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+      setSearchError(false);
       if ('key' in e) {
         if (e.key === 'Enter') {
+          if (search.length === 0) return setSearchError(true);
+
           dispatch(
             setSelectedMenu({
               uid: -1,
@@ -97,6 +101,8 @@ export default React.memo(function PastelHeader() {
       } else {
         e.preventDefault();
         e.stopPropagation();
+
+        if (search.length === 0) return setSearchError(true);
 
         dispatch(
           setSelectedMenu({
@@ -118,6 +124,7 @@ export default React.memo(function PastelHeader() {
 
       dispatch(setSelectedMenu(menus[0].children[0]));
       setSearch('');
+      setSearchError(false);
     },
     [dispatch, menus, setSearch],
   );
@@ -188,7 +195,10 @@ export default React.memo(function PastelHeader() {
         <div className='piystel-7 mr-2 cursor-pointer hover:bg-slate-500 hover:rounded-md' onClick={addPaletteOrColor}>
           <BsPlus size={20} />
         </div>
-        <div className='piystel-8 flex items-center p-1 w-48 border rounded-md'>
+        <div
+          className={`${
+            searchError ? 'animate-bounce border-rose-700 ' : ' '
+          } piystel-8 flex items-center p-1 w-48 border rounded-md`}>
           <div className='mr-1 ml-1 cursor-pointer' onClick={searchPaletts}>
             <BsSearch size={12} />
           </div>
@@ -197,7 +207,12 @@ export default React.memo(function PastelHeader() {
               value={search}
               onChange={changeSearch}
               onKeyDown={searchPaletts}
-              className='bg-transparent focus:outline-none w-full placeholder:text-sm'
+              onBlur={() => {
+                setSearchError(false);
+              }}
+              className={`${
+                searchError ? 'text-rose-700 ' : ' '
+              } bg-transparent focus:outline-none w-full placeholder:text-sm`}
               placeholder='Search'
             />
           </div>

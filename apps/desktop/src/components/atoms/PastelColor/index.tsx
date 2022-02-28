@@ -51,7 +51,7 @@ export default React.memo(function PastelColor({ title, hex, removable, index }:
           data-type={'colors'}
           data-removable={removable}
           data-index={index}
-          className='text-sm'
+          className='text-sm truncate'
           style={{ color: 'var(--color-pastel-text)' }}>
           {renameColorIndex === index ? (
             <input

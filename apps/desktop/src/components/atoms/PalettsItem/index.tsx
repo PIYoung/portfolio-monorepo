@@ -80,7 +80,7 @@ export default React.memo(function PalettsItem({ item }: Props) {
         data-type={'paletts'}
         data-removable={item.removable}
         data-index={item.id}
-        className='text-sm'
+        className='text-sm truncate'
         style={{ color: 'var(--color-pastel-text)' }}>
         {renamePalettsIndex === item.id ? (
           <input
