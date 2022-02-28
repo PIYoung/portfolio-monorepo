@@ -56,9 +56,6 @@ export default function ContextMenuContainer({ children }) {
 
   const removeContextMenu = useCallback(
     (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-      e.preventDefault();
-      e.stopPropagation();
-
       dispatch(setNavigationMenuRenameIndex(null));
       dispatch(setPalettsRenameIndex(null));
       dispatch(setColorRenameIndex(null));

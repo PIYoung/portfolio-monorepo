@@ -1,5 +1,5 @@
 import { ColorResult, SketchPicker } from 'react-color';
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { BsFillGearFill } from 'react-icons/bs';
@@ -10,6 +10,7 @@ import { setSelectedHex } from '../../../reducers/pastel.reducer';
 export default function PastelMainAsideMain() {
   const dispatch = useDispatch();
   const { selectedHex } = useSelector((state: RootState) => state.pastel);
+  const [hexEvent, setHexEvent] = useState<'ping' | 'spin' | 'bounce' | 'pulse' | ''>('bounce');
 
   const setSelectedFFFFFF = useCallback(() => {
     dispatch(setSelectedHex('#ffffff'));
@@ -21,6 +22,13 @@ export default function PastelMainAsideMain() {
     },
     [dispatch],
   );
+
+  const handleRadio = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    const target = e.target;
+    if ('value' in target) {
+      setHexEvent(target.value as 'ping' | 'spin' | 'bounce' | 'pulse' | '');
+    }
+  }, []);
 
   return (
     <div>
@@ -43,7 +51,10 @@ export default function PastelMainAsideMain() {
         className='piystel-14 flex items-center justify-between border-y p-2'>
         <div className='flex items-center'>
           <DraggableItem>
-            <div style={{ backgroundColor: selectedHex }} className='piystel-15 rounded-sm w-4 h-4' />
+            <div
+              style={{ backgroundColor: selectedHex }}
+              className={`piystel-15 animate-${hexEvent} cursor-pointer rounded-sm w-6 h-6`}
+            />
           </DraggableItem>
           <div className='text-sm ml-2' style={{ color: 'var(--color-pastel-text)' }}>
             {selectedHex}
@@ -54,6 +65,73 @@ export default function PastelMainAsideMain() {
           className='piystel-16 cursor-pointer'
           style={{ color: 'var(--color-pastel-text-secondary)' }}>
           <BsFillGearFill />
+        </div>
+      </div>
+      <div className='m-3 text-sm' style={{ color: 'var(--color-text)' }}>
+        <div className='mb-2'>
+          <input
+            id='hex-event-none'
+            name='hex-event'
+            type='radio'
+            checked={hexEvent === ''}
+            value=''
+            onChange={handleRadio}
+          />
+          <label htmlFor='hex-event-none' className='ml-1'>
+            none
+          </label>
+        </div>
+        <div className='mb-2'>
+          <input
+            id='hex-event-ping'
+            name='hex-event'
+            type='radio'
+            checked={hexEvent === 'ping'}
+            value='ping'
+            onChange={handleRadio}
+          />
+          <label htmlFor='hex-event-ping' className='ml-1'>
+            Ping
+          </label>
+        </div>
+        <div className='mb-2'>
+          <input
+            id='hex-event-bounce'
+            name='hex-event'
+            type='radio'
+            checked={hexEvent === 'bounce'}
+            value='bounce'
+            onChange={handleRadio}
+          />
+          <label htmlFor='hex-event-bounce' className='ml-1'>
+            Bounce
+          </label>
+        </div>
+        <div className='mb-2'>
+          <input
+            id='hex-event-spin'
+            name='hex-event'
+            type='radio'
+            checked={hexEvent === 'spin'}
+            value='spin'
+            onChange={handleRadio}
+          />
+          <label htmlFor='hex-event-spin' className='ml-1'>
+            Spin
+          </label>
+        </div>
+        <div className='mb-2'>
+          <input
+            id='hex-event-pulse'
+            name='hex-event'
+            type='radio'
+            checked={hexEvent === 'pulse'}
+            value='pulse'
+            onChange={handleRadio}
+          />
+          <label htmlFor='hex-event-pulse' className='ml-1'>
+            Pulse
+          </label>
         </div>
       </div>
     </div>
