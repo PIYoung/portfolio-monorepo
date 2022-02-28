@@ -49,7 +49,7 @@ export default React.memo(function PalettsItem({ item }: Props) {
       let width: string, height: string;
       if (lines > 1) {
         width = `${200 / 8}px`;
-        height = `${60 / lines}px`;
+        height = `${60 / Math.ceil(lines)}px`;
       } else {
         width = `${200 / item.colors.length}px`;
         height = '60px';
