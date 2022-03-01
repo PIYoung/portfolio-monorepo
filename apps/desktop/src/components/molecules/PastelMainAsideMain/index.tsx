@@ -58,7 +58,19 @@ export default function PastelMainAsideMain() {
           <DraggableItem>
             <div
               style={{ backgroundColor: selectedHex }}
-              className={`piystel-15 animate-${hexEvent} cursor-pointer rounded-sm w-6 h-6`}
+              className={`piystel-15 ${
+                hexEvent === 'none'
+                  ? 'animate-none'
+                  : hexEvent === 'spin'
+                  ? 'animate-spin'
+                  : hexEvent === 'ping'
+                  ? 'animate-ping'
+                  : hexEvent === 'pulse'
+                  ? 'animate-pulse'
+                  : hexEvent === 'bounce'
+                  ? 'animate-bounce'
+                  : ' '
+              } cursor-pointer rounded-sm w-6 h-6`}
             />
           </DraggableItem>
           <div className='text-sm ml-2' style={{ color: 'var(--color-pastel-text)' }}>
@@ -78,8 +90,8 @@ export default function PastelMainAsideMain() {
             id='hex-event-none'
             name='hex-event'
             type='radio'
-            checked={hexEvent === ''}
-            value=''
+            checked={hexEvent === 'none'}
+            value='none'
             onChange={handleRadio}
           />
           <label htmlFor='hex-event-none' className='ml-1 inline-block' style={{ width: '200px' }}>

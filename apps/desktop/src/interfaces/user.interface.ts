@@ -1,4 +1,4 @@
-export type HexEvent = '' | 'ping' | 'bounce' | 'spin' | 'pulse';
+export type HexEvent = 'none' | 'ping' | 'bounce' | 'spin' | 'pulse';
 
 export interface UserConfigurations {
   theme?: 'dark' | 'light';
