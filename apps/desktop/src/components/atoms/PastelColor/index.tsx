@@ -44,7 +44,7 @@ export default React.memo(function PastelColor({ title, hex, removable, index }:
         data-removable={removable}
         data-index={index}
         className='w-full h-full rounded-md'
-        style={{ backgroundColor: hex }}
+        style={{ backgroundColor: hex, boxShadow: 'var(--box-shadow-secondary)' }}
       />
       <div>
         <div

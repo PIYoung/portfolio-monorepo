@@ -15,6 +15,8 @@ export const GlobalStyles = createGlobalStyle<{ colorTheme: 'light' | 'dark' }>`
     --color-pastel-main-aside: ${({ colorTheme }) => COLORS[colorTheme].pastelMainAside};
     --color-pastel-text: ${({ colorTheme }) => COLORS[colorTheme].pastelText};
     --color-pastel-text-secondary: ${({ colorTheme }) => COLORS[colorTheme].pastelTextSecondary};
+    --box-shadow: ${({ colorTheme }) => COLORS[colorTheme].boxShadow};
+    --box-shadow-secondary: ${({ colorTheme }) => COLORS[colorTheme].boxShadowSecondary};
     --size-extra-small: ${SIZES.extraSmall};
     --size-small: ${SIZES.small};
     --size-medium: ${SIZES.medium};

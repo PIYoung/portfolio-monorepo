@@ -72,9 +72,10 @@ export default React.memo(function PalettsItem({ item }: Props) {
   return (
     <div
       className={`${item.removable ? 'piystel-paletts' : ''} mb-8 cursor-pointer`}
-      style={{ width: '200px', height: '100px' }}>
-      <div className='rounded-md overflow-hidden' onClick={handleClick}>
-        <div className='flex flex-wrap '>{item.colors.map(drawItems)}</div>
+      style={{ width: '200px', height: '100px' }}
+      onClick={handleClick}>
+      <div className='rounded-md overflow-hidden box-border' style={{ boxShadow: 'var(--box-shadow)' }}>
+        <div className='flex flex-wrap'>{item.colors.map(drawItems)}</div>
       </div>
       <div
         data-type={'paletts'}
@@ -84,6 +85,10 @@ export default React.memo(function PalettsItem({ item }: Props) {
         style={{ color: 'var(--color-pastel-text)' }}>
         {renamePalettsIndex === item.id ? (
           <input
+            onClick={e => {
+              e.preventDefault();
+              e.stopPropagation();
+            }}
             onKeyPress={renamePaletts}
             className='rounded-sm pl-1 text-xs'
             style={{
