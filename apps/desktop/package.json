@@ -5,13 +5,14 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "start": "PORT=3000 craco start .env.development .env",
-    "start:threejs": "PORT=3000 REACT_APP_THREE_JS=true craco start .env.development .env",
+    "start": "craco start .env.development .env",
+    "start:threejs": "REACT_APP_THREE_JS=true craco start .env.development .env",
     "build": "craco build .env.production .env",
     "test": "craco test .env.test .env",
     "pretty": "prettier --write \"./**/*.{js,jsx,json,ts,tsx}\""
   },
   "dependencies": {
+    "@craco/craco": "^6.4.3",
     "@reduxjs/toolkit": "^1.7.2",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
