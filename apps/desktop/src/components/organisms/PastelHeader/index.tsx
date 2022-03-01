@@ -163,8 +163,9 @@ export default React.memo(function PastelHeader() {
 
       dispatch(restartIntro(false));
       dispatch(restartIntro(true));
+      navigate(PATHS.PASTEL);
     },
-    [dispatch],
+    [dispatch, navigate],
   );
 
   return (
