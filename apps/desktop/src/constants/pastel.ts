@@ -12,7 +12,7 @@ export const initialPastelState: PastelState = {
     to: 'all-paletts',
     removable: false,
   },
-  selectedHex: '#ffffff',
+  selectedHex: '#c585c5',
   menus: [
     {
       uid: 0,
