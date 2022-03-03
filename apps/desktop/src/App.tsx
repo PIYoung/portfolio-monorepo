@@ -18,10 +18,12 @@ import { useSelector } from 'react-redux';
 function App() {
   const { configurations } = useSelector((state: RootState) => state.user);
 
+  console.log(process.env);
+
   return (
     <ErrorBoundary FallbackComponent={ErrorFallback}>
       <GlobalStyles colorTheme={configurations.theme} />
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Routes>
           <Route path={PATHS.MAIN} element={<Main />} />
           <Route path={PATHS.THREE_JS} element={<ThreeJS />} />
