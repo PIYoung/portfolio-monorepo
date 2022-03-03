@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/portfolio-public/static/css/main.2119ab6a.css",
-    "main.js": "/portfolio-public/static/js/main.5500665b.js",
-    "static/js/415.bd75829f.chunk.js": "/portfolio-public/static/js/415.bd75829f.chunk.js",
-    "index.html": "/portfolio-public/index.html",
-    "main.2119ab6a.css.map": "/portfolio-public/static/css/main.2119ab6a.css.map",
-    "main.5500665b.js.map": "/portfolio-public/static/js/main.5500665b.js.map",
-    "415.bd75829f.chunk.js.map": "/portfolio-public/static/js/415.bd75829f.chunk.js.map"
+    "main.css": "https://piyoung.github.io/portfolio-public/static/css/main.2119ab6a.css",
+    "main.js": "https://piyoung.github.io/portfolio-public/static/js/main.55640a3e.js",
+    "static/js/415.bd75829f.chunk.js": "https://piyoung.github.io/portfolio-public/static/js/415.bd75829f.chunk.js",
+    "index.html": "https://piyoung.github.io/portfolio-public/index.html",
+    "main.2119ab6a.css.map": "https://piyoung.github.io/portfolio-public/static/css/main.2119ab6a.css.map",
+    "main.55640a3e.js.map": "https://piyoung.github.io/portfolio-public/static/js/main.55640a3e.js.map",
+    "415.bd75829f.chunk.js.map": "https://piyoung.github.io/portfolio-public/static/js/415.bd75829f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2119ab6a.css",
-    "static/js/main.5500665b.js"
+    "static/js/main.55640a3e.js"
   ]
 }
