@@ -29,6 +29,7 @@ yarn-error.log*
 
 # desktop
 /apps/desktop/node_modules
+/apps/desktop/build
 
 # electron
 /apps/electron/node_modules
