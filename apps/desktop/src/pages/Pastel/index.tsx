@@ -70,6 +70,7 @@ export default function Pastel() {
           prevLabel: '이전',
           doneLabel: '완료',
           skipLabel: '건너뛰기',
+          exitOnOverlayClick: false,
         }}
         enabled={configurations.showIntro}
         steps={[
