@@ -1,4 +1,5 @@
 {
+  "homepage": "https://PIYoung.io/portfolio-pulbic",
   "author": "PIYoung(https://github.com/PIYoung)",
   "name": "desktop",
   "version": "0.1.0",
@@ -8,6 +9,8 @@
     "start": "craco start .env.development .env",
     "start:threejs": "REACT_APP_THREE_JS=true craco start .env.development .env",
     "build": "craco build .env.production .env",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d build",
     "test": "craco test .env.test .env",
     "pretty": "prettier --write \"./**/*.{js,jsx,json,ts,tsx}\""
   },
@@ -57,6 +60,7 @@
     "eslint": "^8.6.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
+    "gh-pages": "^3.2.3",
     "postcss": "^8.4.7",
     "prettier": "^2.5.1",
     "tailwindcss": "^3.0.23"
