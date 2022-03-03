@@ -24,7 +24,6 @@ export default function PastelMain() {
         return <Paletts paletts={paletts} />;
 
       case 2:
-        console.log(paletts);
         return (
           <Paletts
             paletts={paletts
