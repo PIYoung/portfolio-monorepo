@@ -18,8 +18,6 @@ import { useSelector } from 'react-redux';
 function App() {
   const { configurations } = useSelector((state: RootState) => state.user);
 
-  console.log(process.env);
-
   return (
     <ErrorBoundary FallbackComponent={ErrorFallback}>
       <GlobalStyles colorTheme={configurations.theme} />
