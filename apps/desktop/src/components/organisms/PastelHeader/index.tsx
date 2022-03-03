@@ -48,7 +48,7 @@ export default React.memo(function PastelHeader() {
       e.stopPropagation();
 
       localStorage.clear();
-      navigate(PATHS.PASTEL);
+      navigate(PATHS.MAIN);
       window.location.reload();
     },
     [navigate],
