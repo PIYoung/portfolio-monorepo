@@ -8,11 +8,11 @@ import pastel from './pastel.reducer';
 import storage from 'redux-persist/lib/storage';
 import user from './user.reducer';
 
+const middleware = [];
 const transformCircular = createTransform(
   (inboundState, key) => stringify(inboundState),
   (outboundState, key) => parse(outboundState),
 );
-const logger = createLogger();
 const rootReducer = combineReducers({
   user,
   pastel,
@@ -27,9 +27,13 @@ const persistedReducer = persistReducer(
   rootReducer,
 );
 
+if (process.env.NODE_ENV !== 'production') {
+  middleware.push(createLogger());
+}
+
 const store = configureStore({
   reducer: persistedReducer,
-  middleware: [logger],
+  middleware,
 });
 const persistor = persistStore(store);
 const exportObj = {
