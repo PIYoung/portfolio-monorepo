@@ -13,8 +13,6 @@
 - Node: v16.13.1
 - ReactJS: v17.0.2
 - DevTool: VSCode
-- Tested OS: MacOS Monterey 12.2.1(Apple Silicon), Windows 10(intel x64)
-- Tested Browser: Google Chrome v98.0.4758.109(arm64), Safari v15.3(17612.4.9.1.8), Microsoft Edge v98.0.1108.62(64bit)
 - Reference: <https://www.highcaffeinecontent.com/blog/20200610-Pastel>
 
 ```bash
