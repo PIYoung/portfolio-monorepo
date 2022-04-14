@@ -27,6 +27,8 @@ yarn-error.log*
 # admin
 /apps/admin/node_modules
 
+# ai-yolo
+
 # desktop
 /apps/desktop/node_modules
 /apps/desktop/build
