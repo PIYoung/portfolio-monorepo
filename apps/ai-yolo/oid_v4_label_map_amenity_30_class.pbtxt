@@ -1,0 +1,150 @@
+item {
+  name: "/m/09g1w"
+  id: 1
+  display_name: "Toilet"
+}
+item {
+  name: "/m/0b_rs"
+  id: 2
+  display_name: "Swimming pool"
+}
+item {
+  name: "/m/03ssj5"
+  id: 3
+  display_name: "Bed"
+}
+item {
+  name: "/m/04p0qw"
+  id: 4
+  display_name: "Billiard table"
+}
+item {
+  name: "/m/0130jx"
+  id: 5
+  display_name: "Sink"
+}
+item {
+  name: "/m/0220r2"
+  id: 6
+  display_name: "Fountain"
+}
+item {
+  name: "/m/029bxz"
+  id: 7
+  display_name: "Oven"
+}
+item {
+  name: "/m/03ldnb"
+  id: 8
+  display_name: "Ceiling fan"
+}
+item {
+  name: "/m/07c52"
+  id: 9
+  display_name: "Television"
+}
+item {
+  name: "/m/0fx9l"
+  id: 10
+  display_name: "Microwave oven"
+}
+item {
+  name: "/m/02wv84t"
+  id: 11
+  display_name: "Gas stove"
+}
+item {
+  name: "/m/040b_t"
+  id: 12
+  display_name: "Refrigerator"
+}
+item {
+  name: "/m/0h8n5zk"
+  id: 13
+  display_name: "Kitchen & dining room table"
+}
+item {
+  name: "/m/0174k2"
+  id: 14
+  display_name: "Washing machine"
+}
+item {
+  name: "/m/03dnzn"
+  id: 15
+  display_name: "Bathtub"
+}
+item {
+  name: "/m/01lynh"
+  id: 16
+  display_name: "Stairs"
+}
+item {
+  name: "/m/03tw93"
+  id: 17
+  display_name: "Fireplace"
+}
+item {
+  name: "/m/034c16"
+  id: 18
+  display_name: "Pillow"
+}
+item {
+  name: "/m/054_l"
+  id: 19
+  display_name: "Mirror"
+}
+item {
+  name: "/m/02f9f_"
+  id: 20
+  display_name: "Shower"
+}
+item {
+  name: "/m/02crq1"
+  id: 21
+  display_name: "Couch"
+}
+item {
+  name: "/m/0b3fp9"
+  id: 22
+  display_name: "Countertop"
+}
+item {
+  name: "/m/07xyvk"
+  id: 23
+  display_name: "Coffeemaker"
+}
+item {
+  name: "/m/0ky7b"
+  id: 24
+  display_name: "Dishwasher"
+}
+item {
+  name: "/m/03m3pdh"
+  id: 25
+  display_name: "Sofa bed"
+}
+item {
+  name: "/m/02wg_p"
+  id: 26
+  display_name: "Tree house"
+}
+item {
+  name: "/m/0162_1"
+  id: 27
+  display_name: "Towel"
+}
+item {
+  name: "/m/04m6gz"
+  id: 28
+  display_name: "Porch"
+}
+item {
+  name: "/m/0271qf7"
+  id: 29
+  display_name: "Wine rack"
+}
+item {
+  name: "/m/065h6l"
+  id: 30
+  display_name: "Jacuzzi"
+}
