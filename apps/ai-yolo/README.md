@@ -4,7 +4,7 @@
 
 - Project: airbnb clone coding
 - Author: PIYoung
-- Period: 2022. 04. 11 ~ ing
+- Period: 2022. 04. 11 ~ 2022.04.23
 - Reference: <https://medium.com/airbnb-engineering/categorizing-listing-photos-at-airbnb-f9483f3ab7e3>
 
 install tensorflow on MacOS(11+) Apple Silicon(M1+)
@@ -51,7 +51,7 @@ Pip install gin-config
 - Metadata: Class Names
 - Images: 아래 참조
 
-```python3
+```zsh
 pip install awscli
 # set target dir path
 aws s3 --no-sign-request sync s3://open-images-dataset/validation [target_dir/validation]
@@ -61,6 +61,6 @@ aws s3 --no-sign-request sync s3://open-images-dataset/validation [target_dir/va
 
 전체 이미지에서 Amenity 30개 class가 포함된 이미지만 선별하기
 
-```python3
+```zsh
 python3 apps/ai-yolo/scripts/open_images_dataset_30_class_parsing.py
 ```
