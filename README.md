@@ -3,6 +3,7 @@
 ## Description
 
 - 모노레포로 작성 중인 개인 포트폴리오입니다.
+- 대부분의 개인적인 프로젝트는 이곳에서 관리할 것!
 
 ## Portfolio Desktop(ReactJS)
 
@@ -15,7 +16,10 @@
 - DevTool: VSCode
 - Reference: <https://www.highcaffeinecontent.com/blog/20200610-Pastel>
 
-```bash
+```zsh
+  #deploy react-app github-pages
+  yarn deploy:github
+
   # Run React App
   yarn
   yarn desktop start
