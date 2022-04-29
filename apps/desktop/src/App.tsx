@@ -14,6 +14,7 @@ import React from 'react';
 import { RootState } from './reducers';
 import ThreeJS from './pages/ThreeJS';
 import { useSelector } from 'react-redux';
+import MailParser from './pages/MailParser';
 
 function App() {
   const { configurations } = useSelector((state: RootState) => state.user);
@@ -27,6 +28,7 @@ function App() {
           <Route path={PATHS.THREE_JS} element={<ThreeJS />} />
           <Route path={PATHS.PASTEL} element={<Pastel />} />
           <Route path={PATHS.PALETTS_DETAIL} element={<PalettsDetail />} />
+          <Route path={PATHS.MAIL_PARSER} element={<MailParser />} />
           <Route path='*' element={<ErrorFallback error={new Error('404')} resetErrorBoundary={() => {}} />} />
         </Routes>
       </BrowserRouter>
