@@ -1,5 +1,5 @@
 {
-  "homepage": "https://piyoung.github.io/portfolio-public",
+  "homepage": "https://piyoung.github.io/portfolio-monorepo",
   "author": "PIYoung(https://github.com/PIYoung)",
   "name": "desktop",
   "version": "0.1.0",
@@ -9,8 +9,7 @@
     "start": "craco start .env.development .env",
     "start:threejs": "REACT_APP_THREE_JS=true craco start .env.development .env",
     "build": "craco build .env.production .env",
-    "predeploy": "yarn build",
-    "deploy": "gh-pages -d build",
+    "deploy:github": "yarn build && gh-pages -d build",
     "test": "craco test .env.test .env",
     "pretty": "prettier --write \"./**/*.{js,jsx,json,ts,tsx}\""
   },

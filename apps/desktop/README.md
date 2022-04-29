@@ -11,7 +11,10 @@
 - DevTool: VSCode
 - Reference: <https://www.highcaffeinecontent.com/blog/20200610-Pastel>
 
-```bash
+```zsh
+  #deploy react-app github-pages
+  yarn deploy:github
+
   # Run React App
   yarn
   yarn desktop start
