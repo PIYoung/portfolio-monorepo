@@ -47,18 +47,6 @@ export default function MainBottom() {
           <primitive object={gltf.scene} /> 
         </Canvas>
         */}
-        <div
-          style={{ position: 'relative', width: '100%', height: '100%', overflow: 'hidden', touchAction: 'none' }}
-          className=''>
-          <div style={{ width: '100%', height: '100%' }} className=''>
-            <canvas
-              style={{ display: 'block', width: '300px', height: '300px', touchAction: 'none' }}
-              data-engine='three.js r140'
-              width='300'
-              height='300'
-              className=''></canvas>
-          </div>
-        </div>
         <Styled.SpinCircle style={{ '--i': 0 } as any} onMouseOver={stopAnimation} onMouseOut={restartAnimation}>
           <Styled.AgainstSpinCircle>
             <Styled.Pulse>포폴1</Styled.Pulse>
@@ -74,7 +62,7 @@ export default function MainBottom() {
             <Styled.Pulse>포폴3</Styled.Pulse>
           </Styled.AgainstSpinCircle>
         </Styled.SpinCircle>
-        <Styled.SpinCircle style={{ '--i': 3 } as any} onMouseOver={stopAnimation} onMouseOut={restartAnimation}>
+        {/* <Styled.SpinCircle style={{ '--i': 3 } as any} onMouseOver={stopAnimation} onMouseOut={restartAnimation}>
           <Styled.AgainstSpinCircle>
             <Styled.Pulse>포폴4</Styled.Pulse>
           </Styled.AgainstSpinCircle>
@@ -88,7 +76,7 @@ export default function MainBottom() {
           <Styled.AgainstSpinCircle>
             <Styled.Pulse>포폴6</Styled.Pulse>
           </Styled.AgainstSpinCircle>
-        </Styled.SpinCircle>
+        </Styled.SpinCircle> */}
       </Styled.MainCircle>
     </React.Fragment>
   );

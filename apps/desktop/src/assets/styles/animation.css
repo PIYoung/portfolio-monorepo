@@ -4,19 +4,31 @@
 
 @keyframes piy-spin {
 	0% {
-		transform: rotate(calc(60deg * var(--i))) translateX(330px);
+		/* 원이 3개 일때 */
+		transform: rotate(calc(120deg * var(--i))) translateX(330px);
+		/* 원이 6개 일때 */
+		/* transform: rotate(calc(60deg * var(--i))) translateX(330px); */
 	}
 	100% {
-		transform: rotate(calc(360deg + 60deg * var(--i))) translateX(330px);
+		/* 원이 3개 일때 */
+		transform: rotate(calc(360deg + 120deg * var(--i))) translateX(330px);
+		/* 원이 6개 일때 */
+		/* transform: rotate(calc(60deg * var(--i))) translateX(330px); */
 	}
 }
 
 @keyframes piy-spin-against {
 	0% {
-		transform: rotate(calc(360deg - 60deg * var(--i)));
+		/* 원이 3개 일때 */
+		transform: rotate(calc(360deg - 120deg * var(--i)));
+		/* 원이 6개 일때 */
+		/* transform: rotate(calc(360deg - 60deg * var(--i))); */
 	}
 	100% {
-		transform: rotate(calc(-60deg * var(--i)));
+		/* 원이 3개 일때 */
+		transform: rotate(calc(-120deg * var(--i)));
+		/* 원이 6개 일때 */
+		/* transform: rotate(calc(-60deg * var(--i))); */
 	}
 }
 
