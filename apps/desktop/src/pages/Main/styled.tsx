@@ -2,60 +2,27 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   width: 100%;
-  height: 100vh;
-  color: var(--color-text);
   background-color: var(--color-background);
 `;
 
-export const CenterContainer = styled.div`
+export const TopContainer = styled.div`
   width: 1200px;
-  height: 100%;
+  height: 100vh;
   margin: auto;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-`;
-
-export const Outline = styled.div`
-  padding: var(--size-large);
-  border: 2px solid var(--color-primary);
-  border-radius: var(--size-extra-small);
-  background-color: var(--color-background-secondary);
-
-  & > * {
-    margin: var(--size-small);
-  }
-
-  & p {
-    margin: 0;
-  }
-
-  & a {
-    color: var(--color-text);
-    text-decoration: none;
-  }
-`;
-
-export const Button = styled.div`
-  padding: var(--size-medium);
   color: var(--color-text);
-  background-color: var(--color-secondary);
-  border-radius: var(--size-extra-small);
-  cursor: pointer;
-  font-weight: bold;
-  font-size: var(--size-large);
-  margin-bottom: 16px;
+  background-color: var(--color-background);
 `;
 
-export const Greeting = styled.div`
-  & > p {
-    font-size: var(--size-large);
-  }
-`;
-
-export const Info = styled.div`
-  & > p {
-    font-size: 14px;
-  }
+export const BottomContainer = styled.div`
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-text);
+  background-color: var(--color-background-secondary);
 `;
