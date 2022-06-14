@@ -25,8 +25,10 @@ const Main = () => {
   return (
     <Styled.Wrapper>
       <Styled.TopContainer>
-        <ColorTheme />
-        <MainTop />
+        <Styled.Top>
+          <ColorTheme />
+          <MainTop />
+        </Styled.Top>
       </Styled.TopContainer>
       <Styled.BottomContainer>
         <MainBottom />

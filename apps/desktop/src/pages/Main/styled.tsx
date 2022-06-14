@@ -6,8 +6,13 @@ export const Wrapper = styled.div`
 `;
 
 export const TopContainer = styled.div`
-  width: 1200px;
+  width: 100%;
   height: 100vh;
+`;
+
+export const Top = styled.div`
+  max-width: 1200px;
+  height: 100%;
   margin: auto;
   display: flex;
   justify-content: center;
