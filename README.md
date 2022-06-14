@@ -7,7 +7,7 @@
 
 ## Portfolio Desktop(ReactJS)
 
-- Homepage: <https://piyoung.github.io/portfolio-public/>
+- Homepage: <https://piyoung.github.io/portfolio-monorepo/>
 - Project: piystel
 - Author: PIYoung
 - Period: 2022. 02. 26 ~ 2022. 02. 28.
