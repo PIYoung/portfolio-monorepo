@@ -4,6 +4,7 @@ import React, { useLayoutEffect } from 'react';
 
 import ColorTheme from '../../components/molecules/ColorTheme';
 import MainTop from '../../components/organisms/MainTop';
+import MainBottom from '../../components/organisms/MainBottom';
 import { PATHS } from '../../constants';
 import { useNavigate } from 'react-router-dom';
 
@@ -22,12 +23,14 @@ const Main = () => {
   }, [navigate]);
 
   return (
-    <Styled.Wrapper className='123'>
+    <Styled.Wrapper>
       <Styled.TopContainer>
         <ColorTheme />
         <MainTop />
       </Styled.TopContainer>
-      <Styled.BottomContainer>123</Styled.BottomContainer>
+      <Styled.BottomContainer>
+        <MainBottom />
+      </Styled.BottomContainer>
     </Styled.Wrapper>
   );
 };

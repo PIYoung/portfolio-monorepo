@@ -1,20 +1,20 @@
-import './App.css';
+import './assets/styles/index.css';
 import 'intro.js/introjs.css';
 
+import React from 'react';
+import { ErrorBoundary } from 'react-error-boundary';
+import { useSelector } from 'react-redux';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import { ErrorBoundary } from 'react-error-boundary';
+import Main from './pages/Main';
+import ThreeJS from './pages/ThreeJS';
+import Pastel from './pages/Pastel';
+import PalettsDetail from './pages/PalettsDetail';
+import MailParser from './pages/MailParser';
 import ErrorFallback from './pages/ErrorFallback';
 import { GlobalStyles } from './components/templates/GlobalStyles';
-import Main from './pages/Main';
 import { PATHS } from './constants';
-import PalettsDetail from './pages/PalettsDetail';
-import Pastel from './pages/Pastel';
-import React from 'react';
 import { RootState } from './reducers';
-import ThreeJS from './pages/ThreeJS';
-import { useSelector } from 'react-redux';
-import MailParser from './pages/MailParser';
 
 function App() {
   const { configurations } = useSelector((state: RootState) => state.user);

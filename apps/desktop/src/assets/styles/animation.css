@@ -1,0 +1,38 @@
+.paused {
+	animation-play-state: paused !important;
+}
+
+@keyframes piy-spin {
+	0% {
+		transform: rotate(calc(60deg * var(--i))) translateX(330px);
+	}
+	100% {
+		transform: rotate(calc(360deg + 60deg * var(--i))) translateX(330px);
+	}
+}
+
+@keyframes piy-spin-against {
+	0% {
+		transform: rotate(calc(360deg - 60deg * var(--i)));
+	}
+	100% {
+		transform: rotate(calc(-60deg * var(--i)));
+	}
+}
+
+@keyframes piy-pulse {
+	0% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+	}
+
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+	}
+
+	100% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+	}
+}

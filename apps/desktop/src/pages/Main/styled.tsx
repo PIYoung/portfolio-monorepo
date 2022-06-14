@@ -20,9 +20,11 @@ export const TopContainer = styled.div`
 export const BottomContainer = styled.div`
   width: 100%;
   height: 100vh;
+  padding: 16px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  color: var(--color-text);
+  justify-content: center;
+
   background-color: var(--color-background-secondary);
+  color: var(--color-text);
 `;
